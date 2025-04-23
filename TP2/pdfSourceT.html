@@ -1,0 +1,691 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-none.min.js"></script><style>
+        .article {
+            position: relative;
+            padding-bottom: 24px;
+        }
+        
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+
+        .center-text {
+            text-align: center;
+        }
+        
+
+        .code-block {
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            border-radius: 8px;
+            font-variant-ligatures: none;
+            background-color: rgba(25, 25, 28, .05);
+            word-break: break-all;
+        }
+        
+
+        .container {
+            max-width: 100%;
+            overflow: hidden;
+            page-break-inside: avoid;
+            display: block;
+        }
+        
+
+        .control {
+            color: #19191c;
+            font-size: 16px;
+            font-weight: 670;
+        }
+        
+
+        .detached {
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-bottom: 8px;
+        }
+        
+
+        .header-row {
+            background: #e6e6e6;
+        }
+        
+
+        .image {
+            max-width: 100%;
+            max-height: 90vh;
+            height: auto;
+        }
+        
+
+        .image-container {
+            max-width: 100vw;
+        }
+        
+
+        .image-size {
+            height: auto;
+        }
+        
+
+        .inline-code {
+            border-radius: 4px;
+            display: inline;
+            padding: 2px 1px;
+            font-family: JetBrains Sans,monospace;
+            background: #e6e6e6;
+        }
+        
+
+        .list {
+            list-style-type: disc;
+            padding-left: 0;
+            margin-left: 15px;
+        }
+        
+
+        .list-decimal {
+            list-style-type: decimal;
+        }
+        
+
+        .list-item {
+            margin-top: 6px;
+            margin-bottom: 6px;
+            margin-left: 4px;
+        }
+        
+
+        .main-title {
+            padding-bottom: 24px;
+            margin-top: 0;
+            font-size: 40px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+
+        .prism {
+            page-break-inside: avoid;
+        }
+        
+        /* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+armasm+arturo+asciidoc+aspnet+asm6502+asmatmel+autohotkey+autoit+avisynth+avro-idl+awk+bash+basic+batch+bbcode+bbj+bicep+birb+bison+bnf+bqn+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+cilkc+cilkcpp+clojure+cmake+cobol+coffeescript+concurnas+csp+cooklang+coq+crystal+css-extras+csv+cue+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gap+gcode+gdscript+gedcom+gettext+gherkin+git+glsl+gn+linker-script+go+go-module+gradle+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keepalived+keyman+kotlin+kumir+kusto+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+magma+makefile+markdown+markup-templating+mata+matlab+maxscript+mel+mermaid+metafont+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+odin+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plant-uml+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+cshtml+jsx+tsx+reason+regex+rego+renpy+rescript+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+stata+iecst+stylus+supercollider+swift+systemd+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+tremor+turtle+twig+typescript+typoscript+unrealscript+uorazor+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+web-idl+wgsl+wiki+wolfram+wren+xeora+xml-doc+xojo+xquery+yaml+yang+zig&plugins=highlight-keywords */
+code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre-wrap;word-spacing:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:16px;margin:0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+
+        
+
+        :root {
+            width: 95%;
+            max-width: 95vw;
+            padding: 0 0 0 30px;
+        }
+        
+        body {
+            font-family: JetBrains Sans,serif;
+        }
+        
+        a {
+            overflow-wrap: anywhere;
+            width: 100vw;
+        }
+        
+        
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Light.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Light.woff) format("woff");
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Regular.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Regular.woff) format("woff");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-SemiBold.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-SemiBold.woff) format("woff");
+            font-weight: 600;
+            font-style: normal;
+        }
+        
+        
+        code {
+            display: inline;
+            word-break: break-word;
+            font-size: 15px;
+            line-height: inherit;
+            font-variant-ligatures: none;
+            font-family: JetBrains Sans,monospace;
+            white-space: pre-line;
+            overflow-wrap: break-word;
+        }
+        
+        figcaption {
+            margin-top: 5px;
+        }
+        
+        h2 {
+            padding-top: 16px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+        h3 {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+        h4 {
+            padding-top: 4px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+        p {
+            padding: 0;
+            border: 0;
+            line-height: 25px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            padding-bottom: 8px;
+        }
+        
+        div {
+            display: block;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            page-break-inside: avoid;
+        }
+        
+        th, td {
+            border: 1px solid #c4c4c4;
+            padding: 10px;
+            text-align: left;
+            word-break: break-all;
+        }
+        
+        .no-bold {
+            font-weight: normal; 
+        }
+        
+        .entry {
+            display: grid;
+            grid-template-columns: auto max-content;
+            grid-template-areas: "chapter page";
+            align-items: end;
+            gap: 0 .25rem;
+            line-height: 25px;
+        }
+        
+        .toc-link-container{
+            grid-area: chapter;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .toc-link{
+            text-decoration: none;
+            color: black;
+        }
+        
+        .toc-link-container::after {
+            position: absolute;
+            padding-left: .25ch;
+            content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+            text-align: right;
+        }
+        
+        .page {
+            grid-area: page;
+            width: 30px;
+            text-align: right;
+        }
+        
+
+        .table-wrapper {
+            overflow: hidden;
+            box-sizing: border-box;
+            font: inherit;
+        }
+        
+
+        .topic {
+            page-break-before: always;
+        }
+        </style><title>pdfSourceT</title></head><body><div><section class="topic"><div><article class="article"><h1 class="main-title">Table of Contents</h1><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#-1763313526">TP2&mdash;Firewall</a></div><div class="page">2</div></div></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="-1763313526">TP2&mdash;Firewall</h1><p id="-1763313526#-edorio_3"><span class="control" id="-1763313526#-edorio_13">Groupe :</span> Chafai, Hamad, Fauvart, Delanghe, Tonnerre</p><section class="detached"><h2 id="-1763313526#topologie-du-routeur" data-toc="topologie-du-routeur#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-topologie-du-routeur">Topologie du routeur</h2><section class="detached"><h3 id="-1763313526#question-1" data-toc="question-1#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-question-1">Question 1</h3><p id="-1763313526#-edorio_15">Apr&egrave;s avoir connect&eacute; &agrave; la machine &quot;target-router&quot; via <span class="inline-code" id="-1763313526#-edorio_18">./mi-lxc.py attach target-router</span> et examin&eacute; les interfaces avec <span class="inline-code" id="-1763313526#-edorio_19">ip addr</span>, nous avons identifi&eacute;:</p><ul class="list" id="-1763313526#-edorio_16" start="1"><li class="list-item" id="-1763313526#-edorio_20"><p id="-1763313526#-edorio_22"><span class="control" id="-1763313526#-edorio_24">eth0</span>: Interface externe (WAN) - 100.64.0.10/24</p><ul class="list" id="-1763313526#-edorio_23" start="1"><li class="list-item" id="-1763313526#-edorio_25"><p id="-1763313526#-edorio_27">Cette interface est connect&eacute;e &agrave; Internet (c&ocirc;t&eacute; ISP)</p></li><li class="list-item" id="-1763313526#-edorio_26"><p id="-1763313526#-edorio_28">Elle g&egrave;re le trafic venant de l'ext&eacute;rieur de l'entreprise</p></li></ul></li><li class="list-item" id="-1763313526#-edorio_21"><p id="-1763313526#-edorio_29"><span class="control" id="-1763313526#-edorio_31">eth1</span>: Interface interne (LAN) - 100.80.0.1/16</p><ul class="list" id="-1763313526#-edorio_30" start="1"><li class="list-item" id="-1763313526#-edorio_32"><p id="-1763313526#-edorio_34">Cette interface est connect&eacute;e au r&eacute;seau local de l'entreprise</p></li><li class="list-item" id="-1763313526#-edorio_33"><p id="-1763313526#-edorio_35">Elle g&egrave;re le trafic interne de l'entreprise</p></li></ul></li></ul><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_17" alt="ac2c7b6e c2fe 497a b977 e07ac2529ab2" title="ac2c7b6e c2fe 497a b977 e07ac2529ab2" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BAC2C7B6E-C2FE-497A-B977-E07AC2529AB2%7D.png" width="687" height="573"><figcaption class="center-text">ac2c7b6e c2fe 497a b977 e07ac2529ab2</figcaption></figure></div></section></section><section class="detached"><h2 id="-1763313526#protection-de-la-machine-firewall" data-toc="protection-de-la-machine-firewall#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-protection-de-la-machine-firewall">Protection de la machine firewall</h2><section class="detached"><h3 id="-1763313526#question-2" data-toc="question-2#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-question-2">Question 2</h3><p id="-1763313526#-edorio_39">Pour interdire les connexions SSH (port 22) sur la machine target-router, nous avons appliqu&eacute; la r&egrave;gle suivante :</p><div class="detached code-block" id="-1763313526#-edorio_40"><pre><code class="language-bash">iptables -A INPUT -p tcp --dport 22 -j DROP</code></pre></div><p id="-1763313526#-edorio_41">Cette r&egrave;gle :</p><ul class="list" id="-1763313526#-edorio_42" start="1"><li class="list-item" id="-1763313526#-edorio_46"><p id="-1763313526#-edorio_50">S'applique &agrave; la cha&icirc;ne INPUT (trafic entrant sur le routeur)</p></li><li class="list-item" id="-1763313526#-edorio_47"><p id="-1763313526#-edorio_51">Filtre le protocole TCP</p></li><li class="list-item" id="-1763313526#-edorio_48"><p id="-1763313526#-edorio_52">Cible sp&eacute;cifiquement le port de destination 22 (SSH)</p></li><li class="list-item" id="-1763313526#-edorio_49"><p id="-1763313526#-edorio_53">Utilise l'action DROP pour ignorer silencieusement les paquets</p></li></ul><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_43" alt="9e54566e 306b 4ef6 8ab8 fd2bcac8bb24" title="9e54566e 306b 4ef6 8ab8 fd2bcac8bb24" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B9E54566E-306B-4EF6-8AB8-FD2BCAC8BB24%7D.png" width="876" height="227"><figcaption class="center-text">9e54566e 306b 4ef6 8ab8 fd2bcac8bb24</figcaption></figure></div><p id="-1763313526#-edorio_44"><span class="control" id="-1763313526#-edorio_54">Apr&egrave;s l'ajout de ma r&egrave;gle DROP sur SSH</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_45" alt="385c4582 abf9 4b8f a133 9d098185186e" title="385c4582 abf9 4b8f a133 9d098185186e" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B385C4582-ABF9-4B8F-A133-9D098185186E%7D.png" width="942" height="245"><figcaption class="center-text">385c4582 abf9 4b8f a133 9d098185186e</figcaption></figure></div></section><section class="detached"><h3 id="-1763313526#question-3" data-toc="question-3#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-question-3">Question 3</h3><p id="-1763313526#-edorio_55">Le client SSH met un certain temps &agrave; r&eacute;pondre car l'action DROP fait que les paquets sont simplement ignor&eacute;s sans notification. Le client continue donc d'envoyer des paquets et attend une r&eacute;ponse jusqu'&agrave; expiration du d&eacute;lai (timeout). Sans r&eacute;ponse explicite, le client SSH doit attendre que son propre m&eacute;canisme de temporisation se d&eacute;clenche.</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_56" alt="ae9ad2c4 abcf 4a1b a963 e81a5ad0ad63" title="ae9ad2c4 abcf 4a1b a963 e81a5ad0ad63" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BAE9AD2C4-ABCF-4A1B-A963-E81A5AD0AD63%7D.png" width="629" height="36"><figcaption class="center-text">ae9ad2c4 abcf 4a1b a963 e81a5ad0ad63</figcaption></figure></div></section><section class="detached"><h3 id="-1763313526#question-4" data-toc="question-4#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-question-4">Question 4</h3><p id="-1763313526#-edorio_57">Apr&egrave;s avoir remplac&eacute; DROP par REJECT :</p><div class="detached code-block" id="-1763313526#-edorio_58"><pre><code class="language-bash">iptables -A INPUT -p tcp --dport 22 -j REJECT</code></pre></div><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_59" alt="f56f1dd8 2a3c 4241 b789 66b152b20329" title="f56f1dd8 2a3c 4241 b789 66b152b20329" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BF56F1DD8-2A3C-4241-B789-66B152B20329%7D.png" width="1091" height="247"><figcaption class="center-text">f56f1dd8 2a3c 4241 b789 66b152b20329</figcaption></figure></div><p id="-1763313526#-edorio_60">La diff&eacute;rence observ&eacute;e est que le client SSH re&ccedil;oit imm&eacute;diatement une notification d'&eacute;chec, sous forme d'un paquet ICMP &quot;port unreachable&quot; ou d'un paquet TCP RST.</p><p id="-1763313526#-edorio_61">En utilisant <span class="inline-code" id="-1763313526#-edorio_70">tcpdump -i eth0 port 22</span>, nous observons que :</p><ul class="list" id="-1763313526#-edorio_62" start="1"><li class="list-item" id="-1763313526#-edorio_71"><p id="-1763313526#-edorio_73">Avec DROP : pas de r&eacute;ponse aux tentatives de connexion</p></li><li class="list-item" id="-1763313526#-edorio_72"><p id="-1763313526#-edorio_74">Avec REJECT : des paquets ICMP &quot;port unreachable&quot; sont renvoy&eacute;s au client</p></li></ul><p id="-1763313526#-edorio_63">Cette notification explicite permet au client de savoir imm&eacute;diatement que la connexion est refus&eacute;e plut&ocirc;t que d'attendre un timeout.</p><p id="-1763313526#-edorio_64"><span class="control" id="-1763313526#-edorio_75">Avec DROP</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_65" alt="5f05d7d3 5d7a 4c19 856f b3b265b81b55" title="5f05d7d3 5d7a 4c19 856f b3b265b81b55" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B5F05D7D3-5D7A-4C19-856F-B3B265B81B55%7D.png" width="1696" height="266"><figcaption class="center-text">5f05d7d3 5d7a 4c19 856f b3b265b81b55</figcaption></figure></div><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_66" alt="ce3ae40c 51ab 4db1 81d0 e8c2336080de" title="ce3ae40c 51ab 4db1 81d0 e8c2336080de" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BCE3AE40C-51AB-4DB1-81D0-E8C2336080DE%7D.png" width="627" height="39"><figcaption class="center-text">ce3ae40c 51ab 4db1 81d0 e8c2336080de</figcaption></figure></div><p id="-1763313526#-edorio_67"><span class="control" id="-1763313526#-edorio_76">Avec REJECT</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_68" alt="2af73d6d 6100 4068 a8bc 2f718e2a9655" title="2af73d6d 6100 4068 a8bc 2f718e2a9655" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B2AF73D6D-6100-4068-A8BC-2F718E2A9655%7D.png" width="1886" height="205"><figcaption class="center-text">2af73d6d 6100 4068 a8bc 2f718e2a9655</figcaption></figure></div><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_69" alt="e55654f7 7d54 444f 8461 35cbd8135fcc" title="e55654f7 7d54 444f 8461 35cbd8135fcc" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BE55654F7-7D54-444F-8461-35CBD8135FCC%7D.png" width="608" height="34"><figcaption class="center-text">e55654f7 7d54 444f 8461 35cbd8135fcc</figcaption></figure></div></section></section><section class="detached"><h2 id="-1763313526#priorit-des-r-gles" data-toc="priorit-des-r-gles#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-priorit-des-r-gles">Priorit&eacute; des r&egrave;gles</h2><section class="detached"><h3 id="-1763313526#question-5" data-toc="question-5#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-question-5">Question 5</h3><p id="-1763313526#-edorio_79">Pour d&eacute;montrer que l'ordre des r&egrave;gles est important, voici un exemple :</p><div class="detached code-block" id="-1763313526#-edorio_80"><pre><code class="language-bash"># Première règle : accepter tout le trafic SSH
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+# Deuxième règle : rejeter tout le trafic SSH
+iptables -A INPUT -p tcp --dport 22 -j REJECT</code></pre></div><p id="-1763313526#-edorio_81">Dans ce cas, la premi&egrave;re r&egrave;gle sera appliqu&eacute;e et le trafic SSH sera accept&eacute;. La deuxi&egrave;me r&egrave;gle ne sera jamais atteinte pour le trafic SSH.</p><p id="-1763313526#-edorio_82">Si nous inversons l'ordre :</p><div class="detached code-block" id="-1763313526#-edorio_83"><pre><code class="language-bash"># D'abord supprimer les règles existantes
+iptables -F INPUT
+
+# Première règle : rejeter tout le trafic SSH
+iptables -A INPUT -p tcp --dport 22 -j REJECT
+
+# Deuxième règle : accepter tout le trafic SSH
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT</code></pre></div><p id="-1763313526#-edorio_84">Dans ce cas, tout le trafic SSH sera rejet&eacute; car la premi&egrave;re r&egrave;gle sera appliqu&eacute;e et la seconde ne sera jamais atteinte.</p><p id="-1763313526#-edorio_85"><span class="control" id="-1763313526#-edorio_91">Si on accepte puis rejette</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_86" alt="d8964e06 8d95 43e1 8432 aa6f4d460a63" title="d8964e06 8d95 43e1 8432 aa6f4d460a63" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BD8964E06-8D95-43E1-8432-AA6F4D460A63%7D.png" width="704" height="41"><figcaption class="center-text">d8964e06 8d95 43e1 8432 aa6f4d460a63</figcaption></figure></div><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_87" alt="7d693f97 9c1b 41c4 9079 70deb65aa04c" title="7d693f97 9c1b 41c4 9079 70deb65aa04c" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B7D693F97-9C1B-41C4-9079-70DEB65AA04C%7D.png" width="798" height="260"><figcaption class="center-text">7d693f97 9c1b 41c4 9079 70deb65aa04c</figcaption></figure></div><p id="-1763313526#-edorio_88"><span class="control" id="-1763313526#-edorio_92">Si on rejette puis accepte</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_89" alt="e864852a bea3 4f0b b6e9 d4f60a9d1d13" title="e864852a bea3 4f0b b6e9 d4f60a9d1d13" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BE864852A-BEA3-4F0B-B6E9-D4F60A9D1D13%7D.png" width="711" height="36"><figcaption class="center-text">e864852a bea3 4f0b b6e9 d4f60a9d1d13</figcaption></figure></div><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_90" alt="2fea9754 80cb 4d29 b762 af83d430d41b" title="2fea9754 80cb 4d29 b762 af83d430d41b" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B2FEA9754-80CB-4D29-B762-AF83D430D41B%7D.png" width="600" height="36"><figcaption class="center-text">2fea9754 80cb 4d29 b762 af83d430d41b</figcaption></figure></div></section><section class="detached"><h3 id="-1763313526#question-6" data-toc="question-6#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-question-6">Question 6</h3><p id="-1763313526#-edorio_93">Pour autoriser SSH sur le routeur uniquement depuis le LAN interne, nous avons mis en place ces r&egrave;gles :</p><div class="detached code-block" id="-1763313526#-edorio_94"><pre><code class="language-bash"># Nettoyer les règles existantes
+iptables -F INPUT
+
+# Autoriser SSH depuis le réseau interne (100.80.0.0/16)
+iptables -A INPUT -p tcp --dport 22 -s 100.80.0.0/16 -j ACCEPT
+
+# Rejeter toutes les autres tentatives SSH
+iptables -A INPUT -p tcp --dport 22 -j REJECT</code></pre></div><p id="-1763313526#-edorio_95">Ces r&egrave;gles permettent aux machines du r&eacute;seau interne (comme target-admin) d'acc&eacute;der au routeur via SSH, tout en bloquant les tentatives depuis l'ext&eacute;rieur (comme depuis isp-a-hacker).</p><p id="-1763313526#-edorio_96"><span class="control" id="-1763313526#-edorio_102">R&egrave;gles appliqu&eacute;es</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_97" alt="71e712c8 1121 4d58 b325 a4d2b20265d8" title="71e712c8 1121 4d58 b325 a4d2b20265d8" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B71E712C8-1121-4D58-B325-A4D2B20265D8%7D.png" width="889" height="37"><figcaption class="center-text">71e712c8 1121 4d58 b325 a4d2b20265d8</figcaption></figure></div><p id="-1763313526#-edorio_98"><span class="control" id="-1763313526#-edorio_103">Test de connexion SSH depuis le r&eacute;seau interne (succ&egrave;s)</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_99" alt="3ef82730 8fa8 4974 acf8 d5cb1d5a4b3c" title="3ef82730 8fa8 4974 acf8 d5cb1d5a4b3c" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B3EF82730-8FA8-4974-ACF8-D5CB1D5A4B3C%7D.png" width="799" height="290"><figcaption class="center-text">3ef82730 8fa8 4974 acf8 d5cb1d5a4b3c</figcaption></figure></div><p id="-1763313526#-edorio_100"><span class="control" id="-1763313526#-edorio_104">Test de connexion SSH depuis l'ext&eacute;rieur (&eacute;chec)</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_101" alt="5444ec94 8082 44c0 a243 ea051d7e0dd0" title="5444ec94 8082 44c0 a243 ea051d7e0dd0" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B5444EC94-8082-44C0-A243-EA051D7E0DD0%7D.png" width="620" height="113"><figcaption class="center-text">5444ec94 8082 44c0 a243 ea051d7e0dd0</figcaption></figure></div></section></section><section class="detached"><h2 id="-1763313526#modules-iptables" data-toc="modules-iptables#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-modules-iptables">Modules iptables</h2><section class="detached"><h3 id="-1763313526#question-7" data-toc="question-7#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-question-7">Question 7</h3><p id="-1763313526#-edorio_106">Pour autoriser uniquement les r&eacute;ponses aux connexions SSH entrantes, apr&egrave;s avoir d&eacute;fini la politique par d&eacute;faut de OUTPUT &agrave; DROP :</p><div class="detached code-block" id="-1763313526#-edorio_107"><pre><code class="language-bash">iptables -P OUTPUT DROP
+iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -p tcp --sport 22 -j ACCEPT</code></pre></div><p id="-1763313526#-edorio_108">Cette r&egrave;gle :</p><ul class="list" id="-1763313526#-edorio_109" start="1"><li class="list-item" id="-1763313526#-edorio_116"><p id="-1763313526#-edorio_121">Utilise le module &quot;state&quot; pour identifier l'&eacute;tat des connexions</p></li><li class="list-item" id="-1763313526#-edorio_117"><p id="-1763313526#-edorio_122">Autorise uniquement les paquets correspondant &agrave; des connexions d&eacute;j&agrave; &eacute;tablies (ESTABLISHED) ou li&eacute;es (RELATED)</p></li><li class="list-item" id="-1763313526#-edorio_118"><p id="-1763313526#-edorio_123">S'applique uniquement au protocole TCP</p></li><li class="list-item" id="-1763313526#-edorio_119"><p id="-1763313526#-edorio_124">Filtre sur le port source 22 (r&eacute;ponses du service SSH)</p></li><li class="list-item" id="-1763313526#-edorio_120"><p id="-1763313526#-edorio_125">Permet au trafic correspondant de sortir (ACCEPT)</p></li></ul><p id="-1763313526#-edorio_110">Ainsi, seules les r&eacute;ponses aux connexions SSH entrantes seront autoris&eacute;es &agrave; sortir du firewall, tandis que les nouvelles connexions sortantes sont bloqu&eacute;es.</p><p id="-1763313526#-edorio_111"><span class="control" id="-1763313526#-edorio_126">Application des r&egrave;gles avec module state</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_112" alt="283aba46 6bed 4ce5 a7f1 560fa53ec95f" title="283aba46 6bed 4ce5 a7f1 560fa53ec95f" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B283ABA46-6BED-4CE5-A7F1-560FA53EC95F%7D.png" width="1098" height="267"><figcaption class="center-text">283aba46 6bed 4ce5 a7f1 560fa53ec95f</figcaption></figure></div><p id="-1763313526#-edorio_113"><span class="control" id="-1763313526#-edorio_127">Test montrant que seules les r&eacute;ponses SSH sont autoris&eacute;es</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_114" alt="f7c0acd4 5593 4c47 86ad f239c62eda87" title="f7c0acd4 5593 4c47 86ad f239c62eda87" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BF7C0ACD4-5593-4C47-86AD-F239C62EDA87%7D.png" width="800" height="286"><figcaption class="center-text">f7c0acd4 5593 4c47 86ad f239c62eda87</figcaption></figure></div><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_115" alt="4e15b08b c009 4a59 b214 0aaeb5d2ba09" title="4e15b08b c009 4a59 b214 0aaeb5d2ba09" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B4E15B08B-C009-4A59-B214-0AAEB5D2BA09%7D.png" width="799" height="344"><figcaption class="center-text">4e15b08b c009 4a59 b214 0aaeb5d2ba09</figcaption></figure></div></section></section><section class="detached"><h2 id="-1763313526#mise-en-place-d-une-politique-de-s-curit-r-seau" data-toc="mise-en-place-d-une-politique-de-s-curit-r-seau#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-mise-en-place-d-une-politique-de-s-curit-r-seau">Mise en place d'une politique de s&eacute;curit&eacute; r&eacute;seau</h2><section class="detached"><h3 id="-1763313526#question-8" data-toc="question-8#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-question-8">Question 8</h3><p id="-1763313526#-edorio_129">Matrice de flux pour le SI de l'entreprise, bas&eacute;e sur l'analyse des services actifs :</p></section></section><section class="detached"><h2 id="-1763313526#matrice-de-flux-par-zones" data-toc="matrice-de-flux-par-zones#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-matrice-de-flux-par-zones">Matrice de flux par zones</h2><div class="table-wrapper detached"><table id="-1763313526#-edorio_130"><tr class="header-row" id="-1763313526#-edorio_132"><th id="-1763313526#-edorio_138"><p>Source \ Destination</p></th><th id="-1763313526#-edorio_139"><p>Internet</p></th><th id="-1763313526#-edorio_140"><p>DMZ</p></th><th id="-1763313526#-edorio_141"><p>LAN</p></th><th id="-1763313526#-edorio_142"><p>ADMIN</p></th><th id="-1763313526#-edorio_143"><p>SERVICES</p></th></tr><tr class="" id="-1763313526#-edorio_133"><td id="-1763313526#-edorio_144"><p><span class="control" id="-1763313526#-edorio_150">Internet</span></p></td><td id="-1763313526#-edorio_145"><p>X</p></td><td id="-1763313526#-edorio_146"><p>HTTP, HTTPS</p></td><td id="-1763313526#-edorio_147"><p>X</p></td><td id="-1763313526#-edorio_148"><p>X</p></td><td id="-1763313526#-edorio_149"><p>X</p></td></tr><tr class="" id="-1763313526#-edorio_134"><td id="-1763313526#-edorio_151"><p><span class="control" id="-1763313526#-edorio_157">DMZ</span></p></td><td id="-1763313526#-edorio_152"><p>HTTP, HTTPS</p></td><td id="-1763313526#-edorio_153"><p>X</p></td><td id="-1763313526#-edorio_154"><p>X</p></td><td id="-1763313526#-edorio_155"><p>X</p></td><td id="-1763313526#-edorio_156"><p>LDAP (&rarr; target-ldap uniquement)</p></td></tr><tr class="" id="-1763313526#-edorio_135"><td id="-1763313526#-edorio_158"><p><span class="control" id="-1763313526#-edorio_164">LAN</span></p></td><td id="-1763313526#-edorio_159"><p>HTTP, HTTPS (&rarr; Internet)</p></td><td id="-1763313526#-edorio_160"><p>HTTP, HTTPS (&rarr; DMZ)</p></td><td id="-1763313526#-edorio_161"><p>X</p></td><td id="-1763313526#-edorio_162"><p>SSH (&rarr; ADMIN)</p></td><td id="-1763313526#-edorio_163"><p>LDAP, FTP, HTTP (&rarr; intranet)</p></td></tr><tr class="" id="-1763313526#-edorio_136"><td id="-1763313526#-edorio_165"><p><span class="control" id="-1763313526#-edorio_171">ADMIN</span></p></td><td id="-1763313526#-edorio_166"><p>HTTP, HTTPS (&rarr; Internet)</p></td><td id="-1763313526#-edorio_167"><p>SSH, HTTP, HTTPS (&rarr; DMZ)</p></td><td id="-1763313526#-edorio_168"><p>SSH, FTP (&rarr; LAN)</p></td><td id="-1763313526#-edorio_169"><p>X</p></td><td id="-1763313526#-edorio_170"><p>LDAP, SSH, FTP, HTTP (&rarr; SERVICES)</p></td></tr><tr class="" id="-1763313526#-edorio_137"><td id="-1763313526#-edorio_172"><p><span class="control" id="-1763313526#-edorio_178">SERVICES</span></p></td><td id="-1763313526#-edorio_173"><p>X</p></td><td id="-1763313526#-edorio_174"><p>X</p></td><td id="-1763313526#-edorio_175"><p>X</p></td><td id="-1763313526#-edorio_176"><p>SSH (&larr; ADMIN)</p></td><td id="-1763313526#-edorio_177"><p>X</p></td></tr></table></div></section><section class="detached"><h2 id="-1763313526#r-partition-des-machines-par-zone" data-toc="r-partition-des-machines-par-zone#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-r-partition-des-machines-par-zone">R&eacute;partition des machines par zone</h2><ul class="list" id="-1763313526#-edorio_179" start="1"><li class="list-item" id="-1763313526#-edorio_185"><p id="-1763313526#-edorio_190"><span class="control" id="-1763313526#-edorio_191">Internet</span>: Ext&eacute;rieur (machines de test comme <span class="inline-code" id="-1763313526#-edorio_192">isp-a-hacker</span>, <span class="inline-code" id="-1763313526#-edorio_193">isp-a-home</span>)</p></li><li class="list-item" id="-1763313526#-edorio_186"><p id="-1763313526#-edorio_194"><span class="control" id="-1763313526#-edorio_195">DMZ</span>: <span class="inline-code" id="-1763313526#-edorio_196">target-dmz</span> (100.80.1.2)</p></li><li class="list-item" id="-1763313526#-edorio_187"><p id="-1763313526#-edorio_197"><span class="control" id="-1763313526#-edorio_198">LAN</span>: <span class="inline-code" id="-1763313526#-edorio_199">target-commercial</span> (100.80.0.2), <span class="inline-code" id="-1763313526#-edorio_200">target-dev</span> (100.80.0.3)</p></li><li class="list-item" id="-1763313526#-edorio_188"><p id="-1763313526#-edorio_201"><span class="control" id="-1763313526#-edorio_202">ADMIN</span>: <span class="inline-code" id="-1763313526#-edorio_203">target-admin</span> (100.80.2.2)</p></li><li class="list-item" id="-1763313526#-edorio_189"><p id="-1763313526#-edorio_204"><span class="control" id="-1763313526#-edorio_205">SERVICES</span>: <span class="inline-code" id="-1763313526#-edorio_206">target-ldap</span> (100.80.3.2), <span class="inline-code" id="-1763313526#-edorio_207">target-filer</span> (100.80.3.3), <span class="inline-code" id="-1763313526#-edorio_208">target-intranet</span> (100.80.3.4)</p></li></ul><p id="-1763313526#-edorio_180"><span class="control" id="-1763313526#-edorio_209">L&eacute;gende des services</span></p><ul class="list" id="-1763313526#-edorio_181" start="1"><li class="list-item" id="-1763313526#-edorio_210"><p id="-1763313526#-edorio_220">SSH&nbsp;: TCP/22</p></li><li class="list-item" id="-1763313526#-edorio_211"><p id="-1763313526#-edorio_221">HTTP&nbsp;: TCP/80</p></li><li class="list-item" id="-1763313526#-edorio_212"><p id="-1763313526#-edorio_222">HTTPS&nbsp;: TCP/443</p></li><li class="list-item" id="-1763313526#-edorio_213"><p id="-1763313526#-edorio_223">DNS&nbsp;: UDP/53, TCP/53</p></li><li class="list-item" id="-1763313526#-edorio_214"><p id="-1763313526#-edorio_224">SMTP&nbsp;: TCP/25</p></li><li class="list-item" id="-1763313526#-edorio_215"><p id="-1763313526#-edorio_225">IMAP&nbsp;: TCP/143</p></li><li class="list-item" id="-1763313526#-edorio_216"><p id="-1763313526#-edorio_226">IMAPS&nbsp;: TCP/993</p></li><li class="list-item" id="-1763313526#-edorio_217"><p id="-1763313526#-edorio_227">LDAP&nbsp;: TCP/389</p></li><li class="list-item" id="-1763313526#-edorio_218"><p id="-1763313526#-edorio_228">SMB/CIFS&nbsp;: TCP/445</p></li><li class="list-item" id="-1763313526#-edorio_219"><p id="-1763313526#-edorio_229">FTP&nbsp;: TCP/21 (et TCP/20, ports passifs)</p></li></ul><p id="-1763313526#-edorio_182">Cette matrice se base sur l'analyse des services en cours d'ex&eacute;cution sur chaque machine (commande <span class="inline-code" id="-1763313526#-edorio_230">netstat -laptn</span>). On remarque notamment :</p><ul class="list" id="-1763313526#-edorio_183" start="1"><li class="list-item" id="-1763313526#-edorio_231"><p id="-1763313526#-edorio_236">La DMZ expose plusieurs services vers Internet (HTTP, HTTPS, DNS, IMAP, SMTP)</p></li><li class="list-item" id="-1763313526#-edorio_232"><p id="-1763313526#-edorio_237">Le serveur LDAP est accessible depuis toutes les machines internes mais pas depuis Internet</p></li><li class="list-item" id="-1763313526#-edorio_233"><p id="-1763313526#-edorio_238">L'administrateur (target-admin) a acc&egrave;s &agrave; toutes les machines du r&eacute;seau</p></li><li class="list-item" id="-1763313526#-edorio_234"><p id="-1763313526#-edorio_239">Le d&eacute;veloppeur (target-dev) doit pouvoir acc&eacute;der au serveur intranet pour les d&eacute;ploiements</p></li><li class="list-item" id="-1763313526#-edorio_235"><p id="-1763313526#-edorio_240">Les communications entre zones sont strictement limit&eacute;es aux services n&eacute;cessaires</p></li></ul><section class="detached"><h3 id="-1763313526#question-9" data-toc="question-9#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-question-9">Question 9</h3><p id="-1763313526#-edorio_241">Pour segmenter le r&eacute;seau et impl&eacute;menter la politique de s&eacute;curit&eacute; :</p><ol class="list list-decimal" id="-1763313526#-edorio_242" type="1" start="1"><li class="list-item" id="-1763313526#-edorio_248"><p id="-1763313526#-edorio_250"><span class="control" id="-1763313526#-edorio_257">Segmentation du r&eacute;seau</span>:</p><p id="-1763313526#-edorio_251">Modification du fichier <span class="inline-code" id="-1763313526#-edorio_258">global.json</span>:</p><div class="detached code-block" id="-1763313526#-edorio_252"><pre><code class="language-json">{
+  &quot;target&quot;: {
+    &quot;interfaces&quot;: [
+      {&quot;bridge&quot;: &quot;transit-a&quot;, &quot;ip&quot;: &quot;100.64.0.10/24&quot;, &quot;gw&quot;: &quot;100.64.0.1&quot;},
+      {&quot;bridge&quot;: &quot;target-lan&quot;, &quot;ip&quot;: &quot;100.80.0.1/24&quot;},
+      {&quot;bridge&quot;: &quot;target-dmz&quot;, &quot;ip&quot;: &quot;100.80.1.1/24&quot;},
+      {&quot;bridge&quot;: &quot;target-admin&quot;, &quot;ip&quot;: &quot;100.80.2.1/24&quot;},
+      {&quot;bridge&quot;: &quot;target-services&quot;, &quot;ip&quot;: &quot;100.80.3.1/24&quot;}
+    ],
+    &quot;asdev&quot;: &quot;eth0;eth1;eth2;eth3;eth4&quot;
+  }
+}</code></pre></div><p id="-1763313526#-edorio_253">Modification du fichier <span class="inline-code" id="-1763313526#-edorio_259">groups/target/local.json</span> pour adapter les interfaces des machines internes :</p><div class="detached code-block" id="-1763313526#-edorio_254"><pre><code class="language-json">&quot;target-admin&quot;: {
+  &quot;interfaces&quot;: [
+    {&quot;bridge&quot;: &quot;admin&quot;, &quot;ip&quot;: &quot;100.80.2.2/24&quot;, &quot;gw&quot;: &quot;100.80.2.1&quot;}
+  ]
+},
+&quot;target-commercial&quot;: {
+  &quot;interfaces&quot;: [
+    {&quot;bridge&quot;: &quot;lan&quot;, &quot;ip&quot;: &quot;100.80.0.2/24&quot;, &quot;gw&quot;: &quot;100.80.0.1&quot;}
+  ]
+},
+&quot;target-dev&quot;: {
+  &quot;interfaces&quot;: [
+    {&quot;bridge&quot;: &quot;lan&quot;, &quot;ip&quot;: &quot;100.80.0.3/24&quot;, &quot;gw&quot;: &quot;100.80.0.1&quot;}
+  ]
+},
+&quot;target-dmz&quot;: {
+  &quot;interfaces&quot;: [
+    {&quot;bridge&quot;: &quot;dmz&quot;, &quot;ip&quot;: &quot;100.80.1.2/24&quot;, &quot;gw&quot;: &quot;100.80.1.1&quot;}
+  ]
+},
+&quot;target-ldap&quot;: {
+  &quot;interfaces&quot;: [
+    {&quot;bridge&quot;: &quot;services&quot;, &quot;ip&quot;: &quot;100.80.3.2/24&quot;, &quot;gw&quot;: &quot;100.80.3.1&quot;}
+  ]
+},
+&quot;target-filer&quot;: {
+  &quot;interfaces&quot;: [
+    {&quot;bridge&quot;: &quot;services&quot;, &quot;ip&quot;: &quot;100.80.3.3/24&quot;, &quot;gw&quot;: &quot;100.80.3.1&quot;}
+  ]
+},
+&quot;target-intranet&quot;: {
+  &quot;interfaces&quot;: [
+    {&quot;bridge&quot;: &quot;services&quot;, &quot;ip&quot;: &quot;100.80.3.4/24&quot;, &quot;gw&quot;: &quot;100.80.3.1&quot;}
+  ]
+}</code></pre></div><p id="-1763313526#-edorio_255"><span class="control" id="-1763313526#-edorio_260">Sortie de la commande <span class="inline-code" id="-1763313526#-edorio_262">./mi-lxc.py print</span> montrant l'ancienne topologie</span><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_261" alt="38958ad2 9ddb 4a49 9588 b67fcce00f12" title="38958ad2 9ddb 4a49 9588 b67fcce00f12" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B38958AD2-9DDB-4A49-9588-B67FCCE00F12%7D.png" width="1300" height="826"><figcaption class="center-text">38958ad2 9ddb 4a49 9588 b67fcce00f12</figcaption></figure></div></p><p id="-1763313526#-edorio_256"><span class="control" id="-1763313526#-edorio_263">Sortie de la commande <span class="inline-code" id="-1763313526#-edorio_265">./mi-lxc.py print</span> montrant la nouvelle topologie</span><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_264" alt="76de94b9 d1e0 4634 9bbe 68b3f14746ea" title="76de94b9 d1e0 4634 9bbe 68b3f14746ea" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B76DE94B9-D1E0-4634-9BBE-68B3F14746EA%7D.png" width="1308" height="795"><figcaption class="center-text">76de94b9 d1e0 4634 9bbe 68b3f14746ea</figcaption></figure></div></p></li><li class="list-item" id="-1763313526#-edorio_249"><p id="-1763313526#-edorio_266"><span class="control" id="-1763313526#-edorio_267">Script de r&egrave;gles iptables</span>:</p></li></ol><div class="detached code-block" id="-1763313526#-edorio_243"><pre><code class="language-bash">#!/bin/bash
+
+# Nettoyage des règles existantes
+iptables -F
+iptables -X
+iptables -t nat -F
+iptables -t nat -X
+iptables -t mangle -F
+iptables -t mangle -X
+
+# Politiques par défaut
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT ACCEPT
+
+# Autoriser le trafic loopback
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+
+# Autoriser les connexions établies et liées
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Autoriser SSH depuis le réseau admin uniquement
+iptables -A INPUT -p tcp -s 100.80.2.0/24 --dport 22 -j ACCEPT
+
+# Règles de routage entre les zones
+# Internet vers DMZ
+iptables -A FORWARD -i eth0 -o eth2 -p tcp -m multiport --dports 80,443,25,143,21 -j ACCEPT
+iptables -A FORWARD -i eth0 -o eth2 -p udp --dport 53 -j ACCEPT
+
+# DMZ vers Internet
+iptables -A FORWARD -i eth2 -o eth0 -p tcp -m multiport --dports 80,443,53 -j ACCEPT
+iptables -A FORWARD -i eth2 -o eth0 -p udp --dport 53 -j ACCEPT
+
+# DMZ vers Services (uniquement LDAP)
+iptables -A FORWARD -i eth2 -o eth4 -d 100.80.3.2 -p tcp --dport 389 -j ACCEPT
+
+# LAN vers DMZ
+iptables -A FORWARD -i eth1 -o eth2 -p tcp -m multiport --dports 80,443 -j ACCEPT
+
+# LAN vers Services
+iptables -A FORWARD -i eth1 -o eth4 -p tcp -m multiport --dports 389,445,80,443 -j ACCEPT
+
+# Admin vers tous les réseaux
+iptables -A FORWARD -i eth3 -j ACCEPT
+
+# Dev vers Intranet (SSH pour déploiement)
+iptables -A FORWARD -i eth1 -o eth4 -s 100.80.0.3 -d 100.80.3.4 -p tcp --dport 22 -j ACCEPT
+
+# Services vers Services (communication interne)
+iptables -A FORWARD -i eth4 -o eth4 -j ACCEPT
+
+# Activer le masquerading (NAT) pour permettre aux machines internes d'accéder à Internet
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+# Journalisation des paquets rejetés
+iptables -A FORWARD -j LOG --log-prefix &quot;IPTABLES FORWARD REJECT: &quot;</code></pre></div><p id="-1763313526#-edorio_244"><span class="control" id="-1763313526#-edorio_268">Sortie de la commande <span class="inline-code" id="-1763313526#-edorio_270">iptables-save</span> montrant les r&egrave;gles appliqu&eacute;es</span>: <div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_269" alt="6097382f aaf7 436d 950c d9a835e0d3b4" title="6097382f aaf7 436d 950c d9a835e0d3b4" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B6097382F-AAF7-436D-950C-D9A835E0D3B4%7D.png" width="1069" height="645"><figcaption class="center-text">6097382f aaf7 436d 950c d9a835e0d3b4</figcaption></figure></div></p><p id="-1763313526#-edorio_245"><span class="control" id="-1763313526#-edorio_271">Tests de connectivit&eacute; entre les diff&eacute;rentes zones</span>:</p><ul class="list" id="-1763313526#-edorio_246" start="1"><li class="list-item" id="-1763313526#-edorio_272"><p id="-1763313526#-edorio_276">target-ldap : <div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_277" alt="3886f6a4 d707 4c92 b8fd b89e1e0eceb0" title="3886f6a4 d707 4c92 b8fd b89e1e0eceb0" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B3886F6A4-D707-4C92-B8FD-B89E1E0ECEB0%7D.png" width="579" height="803"><figcaption class="center-text">3886f6a4 d707 4c92 b8fd b89e1e0eceb0</figcaption></figure></div><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_278" alt="a794577b 4f33 4395 99d4 953f6c27f436" title="a794577b 4f33 4395 99d4 953f6c27f436" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BA794577B-4F33-4395-99D4-953F6C27F436%7D.png" width="896" height="360"><figcaption class="center-text">a794577b 4f33 4395 99d4 953f6c27f436</figcaption></figure></div></p></li><li class="list-item" id="-1763313526#-edorio_273"><p id="-1763313526#-edorio_279">target-dev : <div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_280" alt="aea51999 c148 479c b2fa af264ddfd6d0" title="aea51999 c148 479c b2fa af264ddfd6d0" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BAEA51999-C148-479C-B2FA-AF264DDFD6D0%7D.png" width="1259" height="604"><figcaption class="center-text">aea51999 c148 479c b2fa af264ddfd6d0</figcaption></figure></div></p></li><li class="list-item" id="-1763313526#-edorio_274"><p id="-1763313526#-edorio_281">isp-a-hacker : <div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_282" alt="d04dd7f6 0f49 4bc2 8ca8 aded8e7e5cce" title="d04dd7f6 0f49 4bc2 8ca8 aded8e7e5cce" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BD04DD7F6-0F49-4BC2-8CA8-ADED8E7E5CCE%7D.png" width="710" height="762"><figcaption class="center-text">d04dd7f6 0f49 4bc2 8ca8 aded8e7e5cce</figcaption></figure></div></p></li><li class="list-item" id="-1763313526#-edorio_275"><p id="-1763313526#-edorio_283">target-admin : <div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_284" alt="90d200d5 0d85 4479 81e6 ab2686486849" title="90d200d5 0d85 4479 81e6 ab2686486849" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B90D200D5-0D85-4479-81E6-AB2686486849%7D.png" width="859" height="785"><figcaption class="center-text">90d200d5 0d85 4479 81e6 ab2686486849</figcaption></figure></div></p></li></ul><p id="-1763313526#-edorio_247">Apr&egrave;s avoir cr&eacute;&eacute; ce script, nous l'avons ex&eacute;cut&eacute; et avons v&eacute;rifi&eacute; que les r&egrave;gles &eacute;taient correctement appliqu&eacute;es avec <span class="inline-code" id="-1763313526#-edorio_285">iptables-save</span>. Nous avons &eacute;galement test&eacute; les connexions pour confirmer que notre politique fonctionnait comme pr&eacute;vu.</p></section></section><section class="detached"><h2 id="-1763313526#contournement-de-la-politique" data-toc="contournement-de-la-politique#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-contournement-de-la-politique">Contournement de la politique</h2><section class="detached"><h3 id="-1763313526#question-10" data-toc="question-10#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-question-10">Question 10</h3><p id="-1763313526#-edorio_287">Le tunnel netcat entre target-dev et isp-a-home fonctionne selon le sch&eacute;ma suivant :</p><div class="detached code-block" id="-1763313526#-edorio_288"><pre><code class="language-none">External Client        isp-a-home                target-dev            target-intranet
+(isp-a-hacker)         (100.120.0.3)            (100.80.0.3)            (100.80.0.5)
+      |                      |                        |                       |
+      | HTTP Request         |                        |                       |
+      | (port 8080)          |                        |                       |
+      |---------------------&gt;|                        |                       |
+      |                      | forwarded via          |                       |
+      |                      | netcat tunnel          |                       |
+      |                      |-----------------------&gt;|                       |
+      |                      |                        | HTTP Request          |
+      |                      |                        |----------------------&gt;|
+      |                      |                        |                       |
+      |                      |                        | HTTP Response         |
+      |                      |                        |&lt;----------------------|
+      |                      | forwarded via          |                       |
+      |                      | netcat tunnel          |                       |
+      |                      |&lt;-----------------------|                       |
+      | HTTP Response        |                        |                       |
+      | (port 8080)          |                        |                       |
+      |&lt;---------------------|                        |                       |</code></pre></div><p id="-1763313526#-edorio_289"><span class="control" id="-1763313526#-edorio_301">Configuration du tunnel netcat sur isp-a-home</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_290" alt="e09370e8 2dce 421b b013 d530f6a70053" title="e09370e8 2dce 421b b013 d530f6a70053" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BE09370E8-2DCE-421B-B013-D530F6A70053%7D.png" width="780" height="154"><figcaption class="center-text">e09370e8 2dce 421b b013 d530f6a70053</figcaption></figure></div><p id="-1763313526#-edorio_291"><span class="control" id="-1763313526#-edorio_302">Configuration du tunnel netcat sur target-dev</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_292" alt="2944cbc6 e058 4958 88a0 4ce5059d43e0" title="2944cbc6 e058 4958 88a0 4ce5059d43e0" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B2944CBC6-E058-4958-88A0-4CE5059D43E0%7D.png" width="798" height="227"><figcaption class="center-text">2944cbc6 e058 4958 88a0 4ce5059d43e0</figcaption></figure></div><p id="-1763313526#-edorio_293"><span class="control" id="-1763313526#-edorio_303">Acc&egrave;s au serveur intranet depuis isp-a-hacker via le tunnel</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_294" alt="b80e581f e5e0 4f81 b474 96587f8b2545" title="b80e581f e5e0 4f81 b474 96587f8b2545" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BB80E581F-E5E0-4F81-B474-96587F8B2545%7D.png" width="1255" height="490"><figcaption class="center-text">b80e581f e5e0 4f81 b474 96587f8b2545</figcaption></figure></div><p id="-1763313526#-edorio_295">Ce tunnel contourne la politique de s&eacute;curit&eacute; parce que :</p><ol class="list list-decimal" id="-1763313526#-edorio_296" type="1" start="1"><li class="list-item" id="-1763313526#-edorio_304"><p id="-1763313526#-edorio_308">La connexion sortante depuis target-dev vers isp-a-home est autoris&eacute;e par la politique de filtrage (le d&eacute;veloppeur peut acc&eacute;der &agrave; Internet)</p></li><li class="list-item" id="-1763313526#-edorio_305"><p id="-1763313526#-edorio_309">Une fois ce tunnel &eacute;tabli, il cr&eacute;e un canal de communication qui n'est pas inspect&eacute; par le firewall</p></li><li class="list-item" id="-1763313526#-edorio_306"><p id="-1763313526#-edorio_310">Tout le trafic passant par ce tunnel est encapsul&eacute; dans la connexion autoris&eacute;e</p></li><li class="list-item" id="-1763313526#-edorio_307"><p id="-1763313526#-edorio_311">Le firewall ne voit qu'une connexion TCP normale entre target-dev et isp-a-home, sans pouvoir inspecter le contenu</p></li></ol><p id="-1763313526#-edorio_297">Ce type de contournement est difficile &agrave; d&eacute;tecter car :</p><ul class="list" id="-1763313526#-edorio_298" start="1"><li class="list-item" id="-1763313526#-edorio_312"><p id="-1763313526#-edorio_316">Il utilise des ports autoris&eacute;s</p></li><li class="list-item" id="-1763313526#-edorio_313"><p id="-1763313526#-edorio_317">Il n'utilise pas de protocoles facilement identifiables</p></li><li class="list-item" id="-1763313526#-edorio_314"><p id="-1763313526#-edorio_318">Le trafic peut &ecirc;tre chiffr&eacute; (avec SSH par exemple)</p></li><li class="list-item" id="-1763313526#-edorio_315"><p id="-1763313526#-edorio_319">Il ressemble &agrave; une connexion l&eacute;gitime</p></li></ul><p id="-1763313526#-edorio_299">Pour se prot&eacute;ger contre ce type d'attaque, il faudrait :</p><ul class="list" id="-1763313526#-edorio_300" start="1"><li class="list-item" id="-1763313526#-edorio_320"><p id="-1763313526#-edorio_324">Limiter strictement les connexions sortantes</p></li><li class="list-item" id="-1763313526#-edorio_321"><p id="-1763313526#-edorio_325">Utiliser une inspection approfondie des paquets (DPI)</p></li><li class="list-item" id="-1763313526#-edorio_322"><p id="-1763313526#-edorio_326">Monitorer les connexions prolong&eacute;es ou inhabituelles</p></li><li class="list-item" id="-1763313526#-edorio_323"><p id="-1763313526#-edorio_327">Mettre en place des solutions EDR sur les postes clients</p></li></ul></section></section><section class="detached"><h2 id="-1763313526#bonus" data-toc="bonus#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-bonus">Bonus</h2><section class="detached"><h3 id="-1763313526#ftp" data-toc="ftp#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-ftp">FTP</h3><p id="-1763313526#-edorio_330">Pour permettre l'usage du protocole FTP depuis l'ext&eacute;rieur vers le serveur FTP de la DMZ, nous avons ajout&eacute; les r&egrave;gles suivantes :</p><div class="detached code-block" id="-1763313526#-edorio_331"><pre><code class="language-bash"># Autoriser le port FTP contrôle
+iptables -A FORWARD -i eth0 -o eth2 -p tcp --dport 21 -j ACCEPT
+
+# Autoriser le port FTP données (mode actif)
+iptables -A FORWARD -i eth0 -o eth2 -p tcp --dport 20 -j ACCEPT
+
+# Autoriser le mode passif (ports éphémères)
+iptables -A FORWARD -i eth0 -o eth2 -p tcp --dport 1024:65535 -m state --state RELATED -j ACCEPT</code></pre></div><p id="-1763313526#-edorio_332"><span class="control" id="-1763313526#-edorio_338">Ajout des r&egrave;gles FTP</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_333" alt="4941c4f7 3d5a 4fa1 ba27 3663c6841740" title="4941c4f7 3d5a 4fa1 ba27 3663c6841740" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B4941C4F7-3D5A-4FA1-BA27-3663C6841740%7D.png" width="1187" height="569"><figcaption class="center-text">4941c4f7 3d5a 4fa1 ba27 3663c6841740</figcaption></figure></div><p id="-1763313526#-edorio_334"><span class="control" id="-1763313526#-edorio_339">Test de connexion FTP depuis l'ext&eacute;rieur</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_335" alt="77410063 ea9c 454d a620 febc2b0aab60" title="77410063 ea9c 454d a620 febc2b0aab60" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B77410063-EA9C-454D-A620-FEBC2B0AAB60%7D.png" width="473" height="54"><figcaption class="center-text">77410063 ea9c 454d a620 febc2b0aab60</figcaption></figure></div><p id="-1763313526#-edorio_336"><span class="control" id="-1763313526#-edorio_340">Capture tcpdump montrant le trafic FTP passant par le firewall</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_337" alt="b95d0d4c 0585 42a9 97e4 91ce2a5f5f15" title="b95d0d4c 0585 42a9 97e4 91ce2a5f5f15" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7BB95D0D4C-0585-42A9-97E4-91CE2A5F5F15%7D.png" width="1905" height="570"><figcaption class="center-text">b95d0d4c 0585 42a9 97e4 91ce2a5f5f15</figcaption></figure></div></section><section class="detached"><h3 id="-1763313526#shorewall" data-toc="shorewall#TP2_Chafai_Hamad_Fauvart_Delanghe_Tonnerre.md-shorewall">Shorewall</h3><p id="-1763313526#-edorio_341">Pour impl&eacute;menter notre politique avec Shorewall, nous avons:</p><ol class="list list-decimal" id="-1763313526#-edorio_342" type="1" start="1"><li class="list-item" id="-1763313526#-edorio_360"><p id="-1763313526#-edorio_362">Install&eacute; Shorewall : <span class="inline-code" id="-1763313526#-edorio_363">apt-get install shorewall</span></p></li><li class="list-item" id="-1763313526#-edorio_361"><p id="-1763313526#-edorio_364">Configur&eacute; les fichiers de base dans <span class="inline-code" id="-1763313526#-edorio_365">/etc/shorewall/</span>:</p></li></ol><p id="-1763313526#-edorio_343"><span class="control" id="-1763313526#-edorio_366">zones</span>:</p><div class="detached code-block" id="-1763313526#-edorio_344"><pre><code class="language-none">fw      firewall
+net     ipv4
+lan     ipv4
+dmz     ipv4
+admin   ipv4
+srv     ipv4</code></pre></div><p id="-1763313526#-edorio_345"><span class="control" id="-1763313526#-edorio_367">interfaces</span>:</p><div class="detached code-block" id="-1763313526#-edorio_346"><pre><code class="language-none">net     eth0    -
+lan     eth1    -
+dmz     eth2    -
+admin   eth3    -
+srv     eth4    -</code></pre></div><p id="-1763313526#-edorio_347"><span class="control" id="-1763313526#-edorio_368">policy</span>:</p><div class="detached code-block" id="-1763313526#-edorio_348"><pre><code class="language-none">fw      all     ACCEPT
+net     all     DROP    INFO
+lan     net     ACCEPT
+lan     dmz     ACCEPT
+lan     srv     ACCEPT
+dmz     net     ACCEPT
+dmz     srv     ACCEPT  INFO
+admin   all     ACCEPT
+srv     srv     ACCEPT
+all     all     DROP    INFO</code></pre></div><p id="-1763313526#-edorio_349"><span class="control" id="-1763313526#-edorio_369">rules</span>:</p><div class="detached code-block" id="-1763313526#-edorio_350"><pre><code class="language-none"># (1) SSH vers le firewall depuis admin uniquement
+SSH(ACCEPT)   admin      fw
+
+# (2) Accès externes vers la DMZ
+HTTP(ACCEPT)   net        dmz
+HTTPS(ACCEPT)  net        dmz
+DNS(ACCEPT)    net        dmz
+SMTP(ACCEPT)   net        dmz
+IMAP(ACCEPT)   net        dmz
+FTP(ACCEPT)    net        dmz
+
+# (3) DMZ vers Internet
+HTTP(ACCEPT)   dmz        net
+HTTPS(ACCEPT)  dmz        net
+DNS(ACCEPT)    dmz        net
+
+# (4) DMZ vers Services (uniquement LDAP sur 100.80.3.2)
+ACCEPT         dmz        srv:100.80.3.2    tcp     389
+
+# (5) LAN vers DMZ
+ACCEPT         lan        dmz               tcp     80,443
+
+# (6) LAN vers Services
+ACCEPT         lan        srv               tcp     389,445,80,443
+
+# (7) Dev (100.80.0.3) vers Intranet (100.80.3.4) en SSH
+ACCEPT         lan:100.80.0.3  srv:100.80.3.4  tcp     22
+
+# (8) Services interne à interne
+ACCEPT         srv        srv
+
+# (9) (optionnel) journalisation des rejets
+# LOG            all        all</code></pre></div><p id="-1763313526#-edorio_351"><span class="control" id="-1763313526#-edorio_370">D&eacute;marrage de Shorewall et v&eacute;rification du statut</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-1763313526#-edorio_352" alt="99ea872c 3d44 499d 9492 59c1523c7d14" title="99ea872c 3d44 499d 9492 59c1523c7d14" src="C:/Users/leble/Documents/S%C3%A9cu-R%C3%A9seau/TP2/Writerside/images/%7B99EA872C-3D44-499D-9492-59C1523C7D14%7D.png" width="636" height="625"><figcaption class="center-text">99ea872c 3d44 499d 9492 59c1523c7d14</figcaption></figure></div><ol class="list list-decimal" id="-1763313526#-edorio_353" type="1" start="3"><li class="list-item" id="-1763313526#-edorio_371"><p id="-1763313526#-edorio_372">Activ&eacute; Shorewall : <span class="inline-code" id="-1763313526#-edorio_373">systemctl enable shorewall &amp;&amp; systemctl start shorewall</span></p></li></ol><p id="-1763313526#-edorio_354">Shorewall offre une gestion beaucoup plus simple et lisible des r&egrave;gles de pare-feu, tout en g&eacute;n&eacute;rant les commandes iptables appropri&eacute;es en arri&egrave;re-plan.</p><p id="-1763313526#-edorio_355"><span class="control" id="-1763313526#-edorio_374">Fichiers de r&egrave;gles iptables g&eacute;n&eacute;r&eacute;es par Shorewall</span>:</p><p id="-1763313526#-edorio_356">shorewall-filter.rules :</p><div class="detached code-block" id="-1763313526#-edorio_357"><pre><code class="language-none">*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT ACCEPT [42:2954]
+:admin-fw - [0:0]
+:admin_frwd - [0:0]
+:dmz-admin - [0:0]
+:dmz-fw - [0:0]
+:dmz-lan - [0:0]
+:dmz-srv - [0:0]
+:dmz_frwd - [0:0]
+:dynamic - [0:0]
+:lan-admin - [0:0]
+:lan-fw - [0:0]
+:lan_frwd - [0:0]
+:logdrop - [0:0]
+:logflags - [0:0]
+:logreject - [0:0]
+:net-admin - [0:0]
+:net-dmz - [0:0]
+:net-fw - [0:0]
+:net-lan - [0:0]
+:net-srv - [0:0]
+:net_frwd - [0:0]
+:sha-lh-b1cf911acfddc01e82d1 - [0:0]
+:sha-rh-dd25120b6513dabbd699 - [0:0]
+:shorewall - [0:0]
+:srv-admin - [0:0]
+:srv-dmz - [0:0]
+:srv-fw - [0:0]
+:srv-lan - [0:0]
+:srv-net - [0:0]
+:srv_frwd - [0:0]
+:tcpflags - [0:0]
+[35:3898] -A INPUT -i eth0 -j net-fw
+[24:1656] -A INPUT -i eth1 -j lan-fw
+[59:3677] -A INPUT -i eth2 -j dmz-fw
+[4:270] -A INPUT -i eth3 -j admin-fw
+[32:2188] -A INPUT -i eth4 -j srv-fw
+[0:0] -A INPUT -i lo -j ACCEPT
+[0:0] -A INPUT -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A INPUT -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A INPUT -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A INPUT -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;INPUT DROP &quot; --log-level 6
+[0:0] -A INPUT -j DROP
+[79:4464] -A FORWARD -i eth0 -j net_frwd
+[0:0] -A FORWARD -i eth1 -j lan_frwd
+[82:5738] -A FORWARD -i eth2 -j dmz_frwd
+[0:0] -A FORWARD -i eth3 -j admin_frwd
+[0:0] -A FORWARD -i eth4 -j srv_frwd
+[0:0] -A FORWARD -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A FORWARD -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A FORWARD -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A FORWARD -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;FORWARD DROP &quot; --log-level 6
+[0:0] -A FORWARD -j DROP
+[4:270] -A admin-fw -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A admin-fw -p tcp -j tcpflags
+[4:270] -A admin-fw -j ACCEPT
+[0:0] -A admin_frwd -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A admin_frwd -p tcp -j tcpflags
+[0:0] -A admin_frwd -o eth0 -j ACCEPT
+[0:0] -A admin_frwd -o eth1 -j ACCEPT
+[0:0] -A admin_frwd -o eth2 -j ACCEPT
+[0:0] -A admin_frwd -o eth4 -j ACCEPT
+[0:0] -A dmz-admin -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A dmz-admin -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A dmz-admin -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A dmz-admin -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A dmz-admin -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;dmz-admin DROP &quot; --log-level 6
+[0:0] -A dmz-admin -j DROP
+[56:3272] -A dmz-fw -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A dmz-fw -p tcp -j tcpflags
+[3:405] -A dmz-fw -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A dmz-fw -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A dmz-fw -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A dmz-fw -m addrtype --dst-type MULTICAST -j DROP
+[56:3272] -A dmz-fw -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;dmz-fw DROP &quot; --log-level 6
+[56:3272] -A dmz-fw -j DROP
+[0:0] -A dmz-lan -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A dmz-lan -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A dmz-lan -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A dmz-lan -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A dmz-lan -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;dmz-lan DROP &quot; --log-level 6
+[0:0] -A dmz-lan -j DROP
+[0:0] -A dmz-srv -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A dmz-srv -d 100.80.3.2/32 -p tcp -m tcp --dport 389 -j ACCEPT
+[0:0] -A dmz-srv -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;dmz-srv ACCEPT &quot; --log-level 6
+[0:0] -A dmz-srv -j ACCEPT
+[0:0] -A dmz_frwd -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[82:5738] -A dmz_frwd -p tcp -j tcpflags
+[82:5738] -A dmz_frwd -o eth0 -j ACCEPT
+[0:0] -A dmz_frwd -o eth1 -j dmz-lan
+[0:0] -A dmz_frwd -o eth3 -j dmz-admin
+[0:0] -A dmz_frwd -o eth4 -j dmz-srv
+[0:0] -A lan-admin -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A lan-admin -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A lan-admin -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A lan-admin -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A lan-admin -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;lan-admin DROP &quot; --log-level 6
+[0:0] -A lan-admin -j DROP
+[24:1656] -A lan-fw -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A lan-fw -p tcp -j tcpflags
+[0:0] -A lan-fw -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A lan-fw -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A lan-fw -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A lan-fw -m addrtype --dst-type MULTICAST -j DROP
+[24:1656] -A lan-fw -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;lan-fw DROP &quot; --log-level 6
+[24:1656] -A lan-fw -j DROP
+[0:0] -A lan_frwd -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A lan_frwd -p tcp -j tcpflags
+[0:0] -A lan_frwd -o eth0 -j ACCEPT
+[0:0] -A lan_frwd -o eth2 -j ACCEPT
+[0:0] -A lan_frwd -o eth3 -j lan-admin
+[0:0] -A lan_frwd -o eth4 -j ACCEPT
+[0:0] -A logdrop -j DROP
+[0:0] -A logflags -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;logflags DROP &quot; --log-level 6 --log-ip-options
+[0:0] -A logflags -j DROP
+[0:0] -A logreject -m addrtype --src-type BROADCAST -j DROP
+[0:0] -A logreject -s 224.0.0.0/4 -j DROP
+[0:0] -A logreject -p igmp -j DROP
+[0:0] -A logreject -p tcp -j REJECT --reject-with tcp-reset
+[0:0] -A logreject -p udp -j REJECT --reject-with icmp-port-unreachable
+[0:0] -A logreject -p icmp -j REJECT --reject-with icmp-host-unreachable
+[0:0] -A logreject -j REJECT --reject-with icmp-host-prohibited
+[0:0] -A net-admin -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A net-admin -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A net-admin -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A net-admin -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A net-admin -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;net-admin DROP &quot; --log-level 6
+[0:0] -A net-admin -j DROP
+[75:4224] -A net-dmz -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[2:120] -A net-dmz -p tcp -m multiport --dports 80,443 -m comment --comment &quot;HTTP, HTTPS&quot; -j ACCEPT
+[0:0] -A net-dmz -p udp -m udp --dport 53 -m comment --comment DNS -j ACCEPT
+[2:120] -A net-dmz -p tcp -m multiport --dports 53,25,143,21 -m comment --comment &quot;DNS, SMTP, IMAP, FTP&quot; -j ACCEPT
+[0:0] -A net-dmz -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A net-dmz -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A net-dmz -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A net-dmz -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;net-dmz DROP &quot; --log-level 6
+[0:0] -A net-dmz -j DROP
+[0:0] -A net-fw -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[28:1722] -A net-fw -p tcp -j tcpflags
+[35:3898] -A net-fw -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A net-fw -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A net-fw -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A net-fw -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A net-fw -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;net-fw DROP &quot; --log-level 6
+[0:0] -A net-fw -j DROP
+[0:0] -A net-lan -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A net-lan -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A net-lan -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A net-lan -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A net-lan -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;net-lan DROP &quot; --log-level 6
+[0:0] -A net-lan -j DROP
+[0:0] -A net-srv -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A net-srv -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A net-srv -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A net-srv -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A net-srv -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;net-srv DROP &quot; --log-level 6
+[0:0] -A net-srv -j DROP
+[4:240] -A net_frwd -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[79:4464] -A net_frwd -p tcp -j tcpflags
+[0:0] -A net_frwd -o eth1 -j net-lan
+[79:4464] -A net_frwd -o eth2 -j net-dmz
+[0:0] -A net_frwd -o eth3 -j net-admin
+[0:0] -A net_frwd -o eth4 -j net-srv
+[0:0] -A shorewall -m recent --set --name %CURRENTTIME --mask 255.255.255.255 --rsource 
+[0:0] -A srv-admin -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A srv-admin -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A srv-admin -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A srv-admin -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A srv-admin -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;srv-admin DROP &quot; --log-level 6
+[0:0] -A srv-admin -j DROP
+[0:0] -A srv-dmz -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A srv-dmz -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A srv-dmz -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A srv-dmz -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A srv-dmz -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;srv-dmz DROP &quot; --log-level 6
+[0:0] -A srv-dmz -j DROP
+[32:2188] -A srv-fw -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A srv-fw -p tcp -j tcpflags
+[0:0] -A srv-fw -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A srv-fw -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A srv-fw -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A srv-fw -m addrtype --dst-type MULTICAST -j DROP
+[32:2188] -A srv-fw -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;srv-fw DROP &quot; --log-level 6
+[32:2188] -A srv-fw -j DROP
+[0:0] -A srv-lan -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A srv-lan -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A srv-lan -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A srv-lan -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A srv-lan -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;srv-lan DROP &quot; --log-level 6
+[0:0] -A srv-lan -j DROP
+[0:0] -A srv-net -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A srv-net -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A srv-net -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A srv-net -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A srv-net -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix &quot;srv-net DROP &quot; --log-level 6
+[0:0] -A srv-net -j DROP
+[0:0] -A srv_frwd -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A srv_frwd -p tcp -j tcpflags
+[0:0] -A srv_frwd -o eth0 -j srv-net
+[0:0] -A srv_frwd -o eth1 -j srv-lan
+[0:0] -A srv_frwd -o eth2 -j srv-dmz
+[0:0] -A srv_frwd -o eth3 -j srv-admin
+[0:0] -A tcpflags -p tcp -m tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG FIN,PSH,URG -g logflags
+[0:0] -A tcpflags -p tcp -m tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG NONE -g logflags
+[0:0] -A tcpflags -p tcp -m tcp --tcp-flags SYN,RST SYN,RST -g logflags
+[0:0] -A tcpflags -p tcp -m tcp --tcp-flags FIN,RST FIN,RST -g logflags
+[0:0] -A tcpflags -p tcp -m tcp --tcp-flags FIN,SYN FIN,SYN -g logflags
+[0:0] -A tcpflags -p tcp -m tcp --tcp-flags FIN,PSH,ACK FIN,PSH -g logflags
+[0:0] -A tcpflags -p tcp -m tcp --sport 0 --tcp-flags FIN,SYN,RST,ACK SYN -g logflags
+COMMIT</code></pre></div><p id="-1763313526#-edorio_358">shorewall-nat.rules :</p><div class="detached code-block" id="-1763313526#-edorio_359"><pre><code class="language-none">*nat
+:PREROUTING ACCEPT [120:7626]
+:INPUT ACCEPT [4:270]
+:OUTPUT ACCEPT [10:712]
+:POSTROUTING ACCEPT [14:952]
+[0:0] -A POSTROUTING -s 100.80.0.0/16 -o eth0 -j MASQUERADE
+COMMIT</code></pre></div></section></section></article></div></section></div></body></html>
