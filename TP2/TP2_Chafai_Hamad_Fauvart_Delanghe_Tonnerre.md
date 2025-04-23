@@ -14,7 +14,7 @@ Après avoir connecté à la machine "target-router" via `./mi-lxc.py attach tar
   - Cette interface est connectée au réseau local de l'entreprise
   - Elle gère le trafic interne de l'entreprise
 
-![alt text]({AC2C7B6E-C2FE-497A-B977-E07AC2529AB2}.png)
+![]({AC2C7B6E-C2FE-497A-B977-E07AC2529AB2}.png)
 
 ## Protection de la machine firewall
 
@@ -31,16 +31,16 @@ Cette règle :
 - Cible spécifiquement le port de destination 22 (SSH)
 - Utilise l'action DROP pour ignorer silencieusement les paquets
 
-![alt text]({9E54566E-306B-4EF6-8AB8-FD2BCAC8BB24}.png)
+![]({9E54566E-306B-4EF6-8AB8-FD2BCAC8BB24}.png)
 
 **Après l'ajout de ma règle DROP sur SSH** :
 
-![alt text]({385C4582-ABF9-4B8F-A133-9D098185186E}.png)
+![]({385C4582-ABF9-4B8F-A133-9D098185186E}.png)
 
 ### Question 3
 Le client SSH met un certain temps à répondre car l'action DROP fait que les paquets sont simplement ignorés sans notification. Le client continue donc d'envoyer des paquets et attend une réponse jusqu'à expiration du délai (timeout). Sans réponse explicite, le client SSH doit attendre que son propre mécanisme de temporisation se déclenche.
 
-![alt text]({AE9AD2C4-ABCF-4A1B-A963-E81A5AD0AD63}.png)
+![]({AE9AD2C4-ABCF-4A1B-A963-E81A5AD0AD63}.png)
 
 ### Question 4
 Après avoir remplacé DROP par REJECT :
@@ -49,7 +49,7 @@ Après avoir remplacé DROP par REJECT :
 iptables -A INPUT -p tcp --dport 22 -j REJECT
 ```
 
-![alt text]({F56F1DD8-2A3C-4241-B789-66B152B20329}.png)
+![]({F56F1DD8-2A3C-4241-B789-66B152B20329}.png)
 
 La différence observée est que le client SSH reçoit immédiatement une notification d'échec, sous forme d'un paquet ICMP "port unreachable" ou d'un paquet TCP RST.
 
@@ -61,15 +61,15 @@ Cette notification explicite permet au client de savoir immédiatement que la co
 
 **Avec DROP** :
 
-![alt text]({5F05D7D3-5D7A-4C19-856F-B3B265B81B55}.png)
+![]({5F05D7D3-5D7A-4C19-856F-B3B265B81B55}.png)
 
-![alt text]({CE3AE40C-51AB-4DB1-81D0-E8C2336080DE}.png)
+![]({CE3AE40C-51AB-4DB1-81D0-E8C2336080DE}.png)
 
 **Avec REJECT** :
 
-![alt text]({2AF73D6D-6100-4068-A8BC-2F718E2A9655}.png)
+![]({2AF73D6D-6100-4068-A8BC-2F718E2A9655}.png)
 
-![alt text]({E55654F7-7D54-444F-8461-35CBD8135FCC}.png)
+![]({E55654F7-7D54-444F-8461-35CBD8135FCC}.png)
 
 ## Priorité des règles
 
@@ -103,15 +103,15 @@ Dans ce cas, tout le trafic SSH sera rejeté car la première règle sera appliq
 
 **Si on accepte puis rejette** :
 
-![alt text]({D8964E06-8D95-43E1-8432-AA6F4D460A63}.png)
+![]({D8964E06-8D95-43E1-8432-AA6F4D460A63}.png)
 
-![alt text]({7D693F97-9C1B-41C4-9079-70DEB65AA04C}.png)
+![]({7D693F97-9C1B-41C4-9079-70DEB65AA04C}.png)
 
 **Si on rejette puis accepte** :
 
-![alt text]({E864852A-BEA3-4F0B-B6E9-D4F60A9D1D13}.png)
+![]({E864852A-BEA3-4F0B-B6E9-D4F60A9D1D13}.png)
 
-![alt text]({2FEA9754-80CB-4D29-B762-AF83D430D41B}.png)
+![]({2FEA9754-80CB-4D29-B762-AF83D430D41B}.png)
 
 ### Question 6
 Pour autoriser SSH sur le routeur uniquement depuis le LAN interne, nous avons mis en place ces règles :
@@ -131,15 +131,15 @@ Ces règles permettent aux machines du réseau interne (comme target-admin) d'ac
 
 **Règles appliquées** :
 
-![alt text]({71E712C8-1121-4D58-B325-A4D2B20265D8}.png)
+![]({71E712C8-1121-4D58-B325-A4D2B20265D8}.png)
 
 **Test de connexion SSH depuis le réseau interne (succès)** :
 
-![alt text]({3EF82730-8FA8-4974-ACF8-D5CB1D5A4B3C}.png)
+![]({3EF82730-8FA8-4974-ACF8-D5CB1D5A4B3C}.png)
 
 **Test de connexion SSH depuis l'extérieur (échec)** :
 
-![alt text]({5444EC94-8082-44C0-A243-EA051D7E0DD0}.png)
+![]({5444EC94-8082-44C0-A243-EA051D7E0DD0}.png)
 
 ## Modules iptables
 
@@ -162,13 +162,13 @@ Ainsi, seules les réponses aux connexions SSH entrantes seront autorisées à s
 
 **Application des règles avec module state** :
 
-![alt text]({283ABA46-6BED-4CE5-A7F1-560FA53EC95F}.png)
+![]({283ABA46-6BED-4CE5-A7F1-560FA53EC95F}.png)
 
 **Test montrant que seules les réponses SSH sont autorisées** :
 
-![alt text]({F7C0ACD4-5593-4C47-86AD-F239C62EDA87}.png)
+![]({F7C0ACD4-5593-4C47-86AD-F239C62EDA87}.png)
 
-![alt text]({4E15B08B-C009-4A59-B214-0AAEB5D2BA09}.png)
+![]({4E15B08B-C009-4A59-B214-0AAEB5D2BA09}.png)
 
 ## Mise en place d'une politique de sécurité réseau
 
@@ -266,10 +266,10 @@ Pour segmenter le réseau et implémenter la politique de sécurité :
    }
    ```
    **Sortie de la commande `./mi-lxc.py print` montrant l'ancienne topologie**
-   ![alt text]({38958AD2-9DDB-4A49-9588-B67FCCE00F12}.png)
+   ![]({38958AD2-9DDB-4A49-9588-B67FCCE00F12}.png)
 
    **Sortie de la commande `./mi-lxc.py print` montrant la nouvelle topologie**
-   ![alt text]({76DE94B9-D1E0-4634-9BBE-68B3F14746EA}.png)
+   ![]({76DE94B9-D1E0-4634-9BBE-68B3F14746EA}.png)
 
 2. **Script de règles iptables** :
 
@@ -335,22 +335,22 @@ iptables -A FORWARD -j LOG --log-prefix "IPTABLES FORWARD REJECT: "
 ```
 
 **Sortie de la commande `iptables-save` montrant les règles appliquées** :
-![alt text]({6097382F-AAF7-436D-950C-D9A835E0D3B4}.png)
+![]({6097382F-AAF7-436D-950C-D9A835E0D3B4}.png)
 
 **Tests de connectivité entre les différentes zones** :
 
 - target-ldap :
-![alt text]({3886F6A4-D707-4C92-B8FD-B89E1E0ECEB0}.png)
-![alt text]({A794577B-4F33-4395-99D4-953F6C27F436}.png)
+![]({3886F6A4-D707-4C92-B8FD-B89E1E0ECEB0}.png)
+![]({A794577B-4F33-4395-99D4-953F6C27F436}.png)
 
 - target-dev :
-![alt text]({AEA51999-C148-479C-B2FA-AF264DDFD6D0}.png)
+![]({AEA51999-C148-479C-B2FA-AF264DDFD6D0}.png)
 
 - isp-a-hacker :
-![alt text]({D04DD7F6-0F49-4BC2-8CA8-ADED8E7E5CCE}.png)
+![]({D04DD7F6-0F49-4BC2-8CA8-ADED8E7E5CCE}.png)
 
 - target-admin :
-![alt text]({90D200D5-0D85-4479-81E6-AB2686486849}.png)
+![]({90D200D5-0D85-4479-81E6-AB2686486849}.png)
 
 Après avoir créé ce script, nous l'avons exécuté et avons vérifié que les règles étaient correctement appliquées avec `iptables-save`. Nous avons également testé les connexions pour confirmer que notre politique fonctionnait comme prévu.
 
@@ -384,15 +384,15 @@ External Client        isp-a-home                target-dev            target-in
 
 **Configuration du tunnel netcat sur isp-a-home** :
 
-![alt text]({E09370E8-2DCE-421B-B013-D530F6A70053}.png)
+![]({E09370E8-2DCE-421B-B013-D530F6A70053}.png)
 
 **Configuration du tunnel netcat sur target-dev** :
 
-![alt text]({2944CBC6-E058-4958-88A0-4CE5059D43E0}.png)
+![]({2944CBC6-E058-4958-88A0-4CE5059D43E0}.png)
 
 **Accès au serveur intranet depuis isp-a-hacker via le tunnel** :
 
-![alt text]({B80E581F-E5E0-4F81-B474-96587F8B2545}.png)
+![]({B80E581F-E5E0-4F81-B474-96587F8B2545}.png)
 
 
 Ce tunnel contourne la politique de sécurité parce que :
@@ -432,13 +432,15 @@ iptables -A FORWARD -i eth0 -o eth2 -p tcp --dport 1024:65535 -m state --state R
 
 **Ajout des règles FTP** :
 
-![alt text]({4941C4F7-3D5A-4FA1-BA27-3663C6841740}.png)
+![]({4941C4F7-3D5A-4FA1-BA27-3663C6841740}.png)
 
 **Test de connexion FTP depuis l'extérieur** :
 
-![alt text]({3886F6A4-D707-4C92-B8FD-B89E1E0ECEB0}.png)
+![]({77410063-EA9C-454D-A620-FEBC2B0AAB60}.png)
 
 **Capture tcpdump montrant le trafic FTP passant par le firewall** :
+
+![]({B95D0D4C-0585-42A9-97E4-91CE2A5F5F15}.png)
 
 ### Shorewall
 Pour implémenter notre politique avec Shorewall, nous avons:
@@ -481,34 +483,274 @@ all     all     DROP    INFO
 
 **rules** :
 ```
-# SSH vers le firewall depuis admin uniquement
-SSH(ACCEPT)  admin   fw
+# (1) SSH vers le firewall depuis admin uniquement
+SSH(ACCEPT)   admin      fw
 
-# Accès Internet depuis DMZ
-HTTP(ACCEPT) dmz     net
-HTTPS(ACCEPT)    dmz     net
-DNS(ACCEPT)  dmz     net
+# (2) Accès externes vers la DMZ
+HTTP(ACCEPT)   net        dmz
+HTTPS(ACCEPT)  net        dmz
+DNS(ACCEPT)    net        dmz
+SMTP(ACCEPT)   net        dmz
+IMAP(ACCEPT)   net        dmz
+FTP(ACCEPT)    net        dmz
 
-# Services internes
-ACCEPT      dmz     srv:100.80.3.2    tcp     389
-ACCEPT      lan     srv     tcp     389,445,80,443
-ACCEPT      lan:100.80.0.3    srv:100.80.3.4    tcp     22
+# (3) DMZ vers Internet
+HTTP(ACCEPT)   dmz        net
+HTTPS(ACCEPT)  dmz        net
+DNS(ACCEPT)    dmz        net
 
-# Accès externes vers DMZ
-HTTP(ACCEPT) net     dmz
-HTTPS(ACCEPT)    net     dmz
-SMTP(ACCEPT) net     dmz
-IMAP(ACCEPT) net     dmz
-FTP(ACCEPT)  net     dmz
-DNS(ACCEPT)  net     dmz
+# (4) DMZ vers Services (uniquement LDAP sur 100.80.3.2)
+ACCEPT         dmz        srv:100.80.3.2    tcp     389
+
+# (5) LAN vers DMZ
+ACCEPT         lan        dmz               tcp     80,443
+
+# (6) LAN vers Services
+ACCEPT         lan        srv               tcp     389,445,80,443
+
+# (7) Dev (100.80.0.3) vers Intranet (100.80.3.4) en SSH
+ACCEPT         lan:100.80.0.3  srv:100.80.3.4  tcp     22
+
+# (8) Services interne à interne
+ACCEPT         srv        srv
+
+# (9) (optionnel) journalisation des rejets
+# LOG            all        all
 ```
 
-**[CAPTURE D'ÉCRAN 25: Installation de Shorewall]**
-**[CAPTURE D'ÉCRAN 26: Configuration des fichiers Shorewall]**
-**[CAPTURE D'ÉCRAN 27: Démarrage de Shorewall et vérification du statut]**
+**Démarrage de Shorewall et vérification du statut** :
+
+![]({99EA872C-3D44-499D-9492-59C1523C7D14}.png)
 
 3. Activé Shorewall : `systemctl enable shorewall && systemctl start shorewall`
 
 Shorewall offre une gestion beaucoup plus simple et lisible des règles de pare-feu, tout en générant les commandes iptables appropriées en arrière-plan. 
 
-**[CAPTURE D'ÉCRAN 28: Vérification des règles iptables générées par Shorewall]** 
+**Fichiers de règles iptables générées par Shorewall** :
+
+shorewall-filter.rules :
+```
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT ACCEPT [42:2954]
+:admin-fw - [0:0]
+:admin_frwd - [0:0]
+:dmz-admin - [0:0]
+:dmz-fw - [0:0]
+:dmz-lan - [0:0]
+:dmz-srv - [0:0]
+:dmz_frwd - [0:0]
+:dynamic - [0:0]
+:lan-admin - [0:0]
+:lan-fw - [0:0]
+:lan_frwd - [0:0]
+:logdrop - [0:0]
+:logflags - [0:0]
+:logreject - [0:0]
+:net-admin - [0:0]
+:net-dmz - [0:0]
+:net-fw - [0:0]
+:net-lan - [0:0]
+:net-srv - [0:0]
+:net_frwd - [0:0]
+:sha-lh-b1cf911acfddc01e82d1 - [0:0]
+:sha-rh-dd25120b6513dabbd699 - [0:0]
+:shorewall - [0:0]
+:srv-admin - [0:0]
+:srv-dmz - [0:0]
+:srv-fw - [0:0]
+:srv-lan - [0:0]
+:srv-net - [0:0]
+:srv_frwd - [0:0]
+:tcpflags - [0:0]
+[35:3898] -A INPUT -i eth0 -j net-fw
+[24:1656] -A INPUT -i eth1 -j lan-fw
+[59:3677] -A INPUT -i eth2 -j dmz-fw
+[4:270] -A INPUT -i eth3 -j admin-fw
+[32:2188] -A INPUT -i eth4 -j srv-fw
+[0:0] -A INPUT -i lo -j ACCEPT
+[0:0] -A INPUT -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A INPUT -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A INPUT -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A INPUT -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "INPUT DROP " --log-level 6
+[0:0] -A INPUT -j DROP
+[79:4464] -A FORWARD -i eth0 -j net_frwd
+[0:0] -A FORWARD -i eth1 -j lan_frwd
+[82:5738] -A FORWARD -i eth2 -j dmz_frwd
+[0:0] -A FORWARD -i eth3 -j admin_frwd
+[0:0] -A FORWARD -i eth4 -j srv_frwd
+[0:0] -A FORWARD -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A FORWARD -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A FORWARD -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A FORWARD -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "FORWARD DROP " --log-level 6
+[0:0] -A FORWARD -j DROP
+[4:270] -A admin-fw -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A admin-fw -p tcp -j tcpflags
+[4:270] -A admin-fw -j ACCEPT
+[0:0] -A admin_frwd -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A admin_frwd -p tcp -j tcpflags
+[0:0] -A admin_frwd -o eth0 -j ACCEPT
+[0:0] -A admin_frwd -o eth1 -j ACCEPT
+[0:0] -A admin_frwd -o eth2 -j ACCEPT
+[0:0] -A admin_frwd -o eth4 -j ACCEPT
+[0:0] -A dmz-admin -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A dmz-admin -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A dmz-admin -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A dmz-admin -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A dmz-admin -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "dmz-admin DROP " --log-level 6
+[0:0] -A dmz-admin -j DROP
+[56:3272] -A dmz-fw -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A dmz-fw -p tcp -j tcpflags
+[3:405] -A dmz-fw -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A dmz-fw -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A dmz-fw -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A dmz-fw -m addrtype --dst-type MULTICAST -j DROP
+[56:3272] -A dmz-fw -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "dmz-fw DROP " --log-level 6
+[56:3272] -A dmz-fw -j DROP
+[0:0] -A dmz-lan -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A dmz-lan -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A dmz-lan -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A dmz-lan -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A dmz-lan -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "dmz-lan DROP " --log-level 6
+[0:0] -A dmz-lan -j DROP
+[0:0] -A dmz-srv -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A dmz-srv -d 100.80.3.2/32 -p tcp -m tcp --dport 389 -j ACCEPT
+[0:0] -A dmz-srv -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "dmz-srv ACCEPT " --log-level 6
+[0:0] -A dmz-srv -j ACCEPT
+[0:0] -A dmz_frwd -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[82:5738] -A dmz_frwd -p tcp -j tcpflags
+[82:5738] -A dmz_frwd -o eth0 -j ACCEPT
+[0:0] -A dmz_frwd -o eth1 -j dmz-lan
+[0:0] -A dmz_frwd -o eth3 -j dmz-admin
+[0:0] -A dmz_frwd -o eth4 -j dmz-srv
+[0:0] -A lan-admin -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A lan-admin -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A lan-admin -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A lan-admin -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A lan-admin -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "lan-admin DROP " --log-level 6
+[0:0] -A lan-admin -j DROP
+[24:1656] -A lan-fw -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A lan-fw -p tcp -j tcpflags
+[0:0] -A lan-fw -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A lan-fw -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A lan-fw -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A lan-fw -m addrtype --dst-type MULTICAST -j DROP
+[24:1656] -A lan-fw -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "lan-fw DROP " --log-level 6
+[24:1656] -A lan-fw -j DROP
+[0:0] -A lan_frwd -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A lan_frwd -p tcp -j tcpflags
+[0:0] -A lan_frwd -o eth0 -j ACCEPT
+[0:0] -A lan_frwd -o eth2 -j ACCEPT
+[0:0] -A lan_frwd -o eth3 -j lan-admin
+[0:0] -A lan_frwd -o eth4 -j ACCEPT
+[0:0] -A logdrop -j DROP
+[0:0] -A logflags -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "logflags DROP " --log-level 6 --log-ip-options
+[0:0] -A logflags -j DROP
+[0:0] -A logreject -m addrtype --src-type BROADCAST -j DROP
+[0:0] -A logreject -s 224.0.0.0/4 -j DROP
+[0:0] -A logreject -p igmp -j DROP
+[0:0] -A logreject -p tcp -j REJECT --reject-with tcp-reset
+[0:0] -A logreject -p udp -j REJECT --reject-with icmp-port-unreachable
+[0:0] -A logreject -p icmp -j REJECT --reject-with icmp-host-unreachable
+[0:0] -A logreject -j REJECT --reject-with icmp-host-prohibited
+[0:0] -A net-admin -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A net-admin -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A net-admin -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A net-admin -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A net-admin -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "net-admin DROP " --log-level 6
+[0:0] -A net-admin -j DROP
+[75:4224] -A net-dmz -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[2:120] -A net-dmz -p tcp -m multiport --dports 80,443 -m comment --comment "HTTP, HTTPS" -j ACCEPT
+[0:0] -A net-dmz -p udp -m udp --dport 53 -m comment --comment DNS -j ACCEPT
+[2:120] -A net-dmz -p tcp -m multiport --dports 53,25,143,21 -m comment --comment "DNS, SMTP, IMAP, FTP" -j ACCEPT
+[0:0] -A net-dmz -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A net-dmz -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A net-dmz -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A net-dmz -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "net-dmz DROP " --log-level 6
+[0:0] -A net-dmz -j DROP
+[0:0] -A net-fw -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[28:1722] -A net-fw -p tcp -j tcpflags
+[35:3898] -A net-fw -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A net-fw -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A net-fw -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A net-fw -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A net-fw -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "net-fw DROP " --log-level 6
+[0:0] -A net-fw -j DROP
+[0:0] -A net-lan -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A net-lan -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A net-lan -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A net-lan -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A net-lan -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "net-lan DROP " --log-level 6
+[0:0] -A net-lan -j DROP
+[0:0] -A net-srv -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A net-srv -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A net-srv -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A net-srv -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A net-srv -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "net-srv DROP " --log-level 6
+[0:0] -A net-srv -j DROP
+[4:240] -A net_frwd -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[79:4464] -A net_frwd -p tcp -j tcpflags
+[0:0] -A net_frwd -o eth1 -j net-lan
+[79:4464] -A net_frwd -o eth2 -j net-dmz
+[0:0] -A net_frwd -o eth3 -j net-admin
+[0:0] -A net_frwd -o eth4 -j net-srv
+[0:0] -A shorewall -m recent --set --name %CURRENTTIME --mask 255.255.255.255 --rsource 
+[0:0] -A srv-admin -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A srv-admin -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A srv-admin -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A srv-admin -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A srv-admin -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "srv-admin DROP " --log-level 6
+[0:0] -A srv-admin -j DROP
+[0:0] -A srv-dmz -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A srv-dmz -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A srv-dmz -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A srv-dmz -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A srv-dmz -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "srv-dmz DROP " --log-level 6
+[0:0] -A srv-dmz -j DROP
+[32:2188] -A srv-fw -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A srv-fw -p tcp -j tcpflags
+[0:0] -A srv-fw -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A srv-fw -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A srv-fw -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A srv-fw -m addrtype --dst-type MULTICAST -j DROP
+[32:2188] -A srv-fw -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "srv-fw DROP " --log-level 6
+[32:2188] -A srv-fw -j DROP
+[0:0] -A srv-lan -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A srv-lan -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A srv-lan -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A srv-lan -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A srv-lan -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "srv-lan DROP " --log-level 6
+[0:0] -A srv-lan -j DROP
+[0:0] -A srv-net -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+[0:0] -A srv-net -m addrtype --dst-type BROADCAST -j DROP
+[0:0] -A srv-net -m addrtype --dst-type ANYCAST -j DROP
+[0:0] -A srv-net -m addrtype --dst-type MULTICAST -j DROP
+[0:0] -A srv-net -m hashlimit --hashlimit-upto 1/sec --hashlimit-burst 10 --hashlimit-mode srcip --hashlimit-name lograte -j LOG --log-prefix "srv-net DROP " --log-level 6
+[0:0] -A srv-net -j DROP
+[0:0] -A srv_frwd -m conntrack --ctstate INVALID,NEW,UNTRACKED -j dynamic
+[0:0] -A srv_frwd -p tcp -j tcpflags
+[0:0] -A srv_frwd -o eth0 -j srv-net
+[0:0] -A srv_frwd -o eth1 -j srv-lan
+[0:0] -A srv_frwd -o eth2 -j srv-dmz
+[0:0] -A srv_frwd -o eth3 -j srv-admin
+[0:0] -A tcpflags -p tcp -m tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG FIN,PSH,URG -g logflags
+[0:0] -A tcpflags -p tcp -m tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG NONE -g logflags
+[0:0] -A tcpflags -p tcp -m tcp --tcp-flags SYN,RST SYN,RST -g logflags
+[0:0] -A tcpflags -p tcp -m tcp --tcp-flags FIN,RST FIN,RST -g logflags
+[0:0] -A tcpflags -p tcp -m tcp --tcp-flags FIN,SYN FIN,SYN -g logflags
+[0:0] -A tcpflags -p tcp -m tcp --tcp-flags FIN,PSH,ACK FIN,PSH -g logflags
+[0:0] -A tcpflags -p tcp -m tcp --sport 0 --tcp-flags FIN,SYN,RST,ACK SYN -g logflags
+COMMIT
+```
+shorewall-nat.rules :
+```
+*nat
+:PREROUTING ACCEPT [120:7626]
+:INPUT ACCEPT [4:270]
+:OUTPUT ACCEPT [10:712]
+:POSTROUTING ACCEPT [14:952]
+[0:0] -A POSTROUTING -s 100.80.0.0/16 -o eth0 -j MASQUERADE
+COMMIT
+
+```
