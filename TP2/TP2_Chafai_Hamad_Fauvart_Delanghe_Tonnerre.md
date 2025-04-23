@@ -175,29 +175,39 @@ Ainsi, seules les réponses aux connexions SSH entrantes seront autorisées à s
 ### Question 8
 Matrice de flux pour le SI de l'entreprise, basée sur l'analyse des services actifs :
 
-| Source \ Destination | Internet | target-router (100.80.0.1) | target-dmz (100.80.1.2) | target-admin (100.80.0.4) | target-commercial (100.80.0.2) | target-dev (100.80.0.3) | target-ldap (100.80.0.10) | target-filer (100.80.0.6) | target-intranet (100.80.0.5) |
-|----------------------|----------|--------------|------------|--------------|-------------------|------------|-------------|--------------|-----------------|
-| Internet             | X        | SSH (bloqué) | HTTP, HTTPS, DNS, SMTP, IMAP, IMAPS | Bloqué | Bloqué | Bloqué | Bloqué | Bloqué | Bloqué |
-| target-router        | HTTP, HTTPS, DNS | X            | Tout       | Tout         | Tout              | Tout       | Tout        | Tout         | Tout            |
-| target-dmz           | HTTP, HTTPS, DNS, SMTP | DNS, SSH   | X          | Bloqué       | Bloqué            | Bloqué     | LDAP        | Bloqué       | Bloqué          |
-| target-admin         | HTTP, HTTPS | SSH        | SSH, HTTP, HTTPS, DNS | X       | SSH, RDP          | SSH, RDP   | LDAP, SSH   | SSH, SMB/CIFS     | SSH, HTTP      |
-| target-commercial    | HTTP, HTTPS | Bloqué     | HTTP, HTTPS, SMTP | SSH       | X                 | Bloqué     | LDAP        | SSH, SMB/CIFS     | HTTP, HTTPS      |
-| target-dev           | HTTP, HTTPS | Bloqué     | HTTP, HTTPS, SSH | Bloqué   | Bloqué            | X          | LDAP        | SSH, SMB/CIFS     | SSH, HTTP, HTTPS |
-| target-ldap          | Bloqué   | Bloqué      | Bloqué     | SSH       | Bloqué            | Bloqué     | X           | Bloqué       | Bloqué          |
-| target-filer         | Bloqué   | Bloqué      | Bloqué     | SSH       | Bloqué            | Bloqué     | LDAP        | X            | Bloqué          |
-| target-intranet      | Bloqué   | Bloqué      | Bloqué     | SSH       | Bloqué            | Bloqué     | LDAP        | SSH, SMB/CIFS     | X               |
+## Matrice de flux par zones
 
-Légende des services :
-- SSH: TCP/22
-- HTTP: TCP/80
-- HTTPS: TCP/443
-- DNS: UDP/53, TCP/53
-- SMTP: TCP/25
-- IMAP: TCP/143
-- IMAPS: TCP/993
-- LDAP: TCP/389
-- SMB/CIFS: TCP/445
-- RDP: TCP/3389
+| Source \ Destination | Internet | ROUTER             | DMZ                                       | LAN                              | ADMIN                             | SERVICES                          |
+|----------------------|----------|---------------------|--------------------------------------------|-----------------------------------|------------------------------------|------------------------------------|
+| **Internet**         | X        | SSH (bloqué)        | HTTP, HTTPS, DNS, SMTP, IMAP, FTP          | Bloqué                            | Bloqué                            | Bloqué                            |
+| **ROUTER**           | HTTP, HTTPS, DNS | X       | Tout                                      | Tout                              | Tout                               | Tout                               |
+| **DMZ**              | HTTP, HTTPS, DNS, SMTP | DNS, SSH | X                                   | Bloqué                            | Bloqué                            | LDAP vers 100.80.3.2 uniquement   |
+| **LAN**              | HTTP, HTTPS, FTP | Bloqué       | HTTP, HTTPS                              | X                                 | SSH, RDP, FTP (depuis dev/com)    | LDAP, SMB, FTP, HTTP, HTTPS       |
+| **ADMIN**            | HTTP, HTTPS, FTP | SSH          | SSH, HTTP, HTTPS, DNS                    | SSH, RDP, FTP                    | X                                  | LDAP, SSH, SMB, FTP, HTTP         |
+| **SERVICES**         | Bloqué   | Bloqué              | Bloqué                                     | LDAP, SMB, FTP, HTTP, HTTPS       | SSH                                | X                                  |
+
+---
+
+## Répartition des machines par zone
+
+- **Internet** : Extérieur (machines de test comme `isp-a-hacker`, `isp-a-home`)
+- **ROUTER** : `target-router` (100.80.X.1 selon l'interface)
+- **DMZ** : `target-dmz` (100.80.1.2)
+- **LAN** : `target-commercial` (100.80.0.2), `target-dev` (100.80.0.3)
+- **ADMIN** : `target-admin` (100.80.2.2)
+- **SERVICES** : `target-ldap` (100.80.3.2), `target-filer` (100.80.3.3), `target-intranet` (100.80.3.4)
+
+**Légende des services**  
+- SSH : TCP/22  
+- HTTP : TCP/80  
+- HTTPS : TCP/443  
+- DNS : UDP/53, TCP/53  
+- SMTP : TCP/25  
+- IMAP : TCP/143  
+- IMAPS : TCP/993  
+- LDAP : TCP/389  
+- SMB/CIFS : TCP/445  
+- FTP : TCP/21 (et TCP/20, ports passifs)  
 
 Cette matrice se base sur l'analyse des services en cours d'exécution sur chaque machine (commande `netstat -laptn`). On remarque notamment :
 - La DMZ expose plusieurs services vers Internet (HTTP, HTTPS, DNS, IMAP, SMTP)
