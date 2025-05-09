@@ -1,0 +1,2 @@
+# Rule to detect files packed with UPX
+alert http any any -> $HOME_NET any (msg:"UPX Packed File Download Detected"; content:"Info: This file is packed with the UPX executable packer http://upx.sf.net"; sid:1000001; rev:1;) 

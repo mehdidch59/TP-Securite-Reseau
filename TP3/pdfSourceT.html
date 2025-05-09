@@ -1,0 +1,322 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-none.min.js"></script><style>
+        .article {
+            position: relative;
+            padding-bottom: 24px;
+        }
+        
+
+        .code-block {
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            border-radius: 8px;
+            font-variant-ligatures: none;
+            background-color: rgba(25, 25, 28, .05);
+            word-break: break-all;
+        }
+        
+
+        .control {
+            color: #19191c;
+            font-size: 16px;
+            font-weight: 670;
+        }
+        
+
+        .detached {
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-bottom: 8px;
+        }
+        
+
+        .emphasis {
+            color: inherit;
+            font-weight: inherit;
+            font-style: italic;
+        }
+        
+
+        .inline-code {
+            border-radius: 4px;
+            display: inline;
+            padding: 2px 1px;
+            font-family: JetBrains Sans,monospace;
+            background: #e6e6e6;
+        }
+        
+
+        .list {
+            list-style-type: disc;
+            padding-left: 0;
+            margin-left: 15px;
+        }
+        
+
+        .list-decimal {
+            list-style-type: decimal;
+        }
+        
+
+        .list-item {
+            margin-top: 6px;
+            margin-bottom: 6px;
+            margin-left: 4px;
+        }
+        
+
+        .main-title {
+            padding-bottom: 24px;
+            margin-top: 0;
+            font-size: 40px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+
+        .prism {
+            page-break-inside: avoid;
+        }
+        
+        /* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+armasm+arturo+asciidoc+aspnet+asm6502+asmatmel+autohotkey+autoit+avisynth+avro-idl+awk+bash+basic+batch+bbcode+bbj+bicep+birb+bison+bnf+bqn+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+cilkc+cilkcpp+clojure+cmake+cobol+coffeescript+concurnas+csp+cooklang+coq+crystal+css-extras+csv+cue+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gap+gcode+gdscript+gedcom+gettext+gherkin+git+glsl+gn+linker-script+go+go-module+gradle+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keepalived+keyman+kotlin+kumir+kusto+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+magma+makefile+markdown+markup-templating+mata+matlab+maxscript+mel+mermaid+metafont+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+odin+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plant-uml+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+cshtml+jsx+tsx+reason+regex+rego+renpy+rescript+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+stata+iecst+stylus+supercollider+swift+systemd+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+tremor+turtle+twig+typescript+typoscript+unrealscript+uorazor+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+web-idl+wgsl+wiki+wolfram+wren+xeora+xml-doc+xojo+xquery+yaml+yang+zig&plugins=highlight-keywords */
+code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre-wrap;word-spacing:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:16px;margin:0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+
+        
+
+        :root {
+            width: 95%;
+            max-width: 95vw;
+            padding: 0 0 0 30px;
+        }
+        
+        body {
+            font-family: JetBrains Sans,serif;
+        }
+        
+        a {
+            overflow-wrap: anywhere;
+            width: 100vw;
+        }
+        
+        
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Light.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Light.woff) format("woff");
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Regular.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Regular.woff) format("woff");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-SemiBold.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-SemiBold.woff) format("woff");
+            font-weight: 600;
+            font-style: normal;
+        }
+        
+        
+        code {
+            display: inline;
+            word-break: break-word;
+            font-size: 15px;
+            line-height: inherit;
+            font-variant-ligatures: none;
+            font-family: JetBrains Sans,monospace;
+            white-space: pre-line;
+            overflow-wrap: break-word;
+        }
+        
+        figcaption {
+            margin-top: 5px;
+        }
+        
+        h2 {
+            padding-top: 16px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+        h3 {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+        h4 {
+            padding-top: 4px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+        p {
+            padding: 0;
+            border: 0;
+            line-height: 25px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            padding-bottom: 8px;
+        }
+        
+        div {
+            display: block;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            page-break-inside: avoid;
+        }
+        
+        th, td {
+            border: 1px solid #c4c4c4;
+            padding: 10px;
+            text-align: left;
+            word-break: break-all;
+        }
+        
+        .no-bold {
+            font-weight: normal; 
+        }
+        
+        .entry {
+            display: grid;
+            grid-template-columns: auto max-content;
+            grid-template-areas: "chapter page";
+            align-items: end;
+            gap: 0 .25rem;
+            line-height: 25px;
+        }
+        
+        .toc-link-container{
+            grid-area: chapter;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .toc-link{
+            text-decoration: none;
+            color: black;
+        }
+        
+        .toc-link-container::after {
+            position: absolute;
+            padding-left: .25ch;
+            content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+            text-align: right;
+        }
+        
+        .page {
+            grid-area: page;
+            width: 30px;
+            text-align: right;
+        }
+        
+
+        .topic {
+            page-break-before: always;
+        }
+        </style><title>pdfSourceT</title></head><body><div><section class="topic"><div><article class="article"><h1 class="main-title">Table of Contents</h1><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#850787995">R&eacute;ponses TP3 - Chiffrements</a></div><div class="page">2</div></div></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="850787995">R&eacute;ponses TP3 - Chiffrements</h1><section class="detached"><h2 id="850787995#1-rappel-de-la-diff-rence-entre-chiffrement-sym-trique-et-chiffrement-asym-trique" data-toc="1-rappel-de-la-diff-rence-entre-chiffrement-sym-trique-et-chiffrement-asym-trique#TP3-Crypto-Reponses.md-1-rappel-de-la-diff-rence-entre-chiffrement-sym-trique-et-chiffrement-asym-trique">1. Rappel de la diff&eacute;rence entre chiffrement sym&eacute;trique et chiffrement asym&eacute;trique</h2><p id="850787995#-16qaiw_14">Le <span class="control" id="850787995#-16qaiw_18">chiffrement sym&eacute;trique</span> utilise une cl&eacute; unique pour chiffrer et d&eacute;chiffrer les donn&eacute;es. &Eacute;metteur et r&eacute;cepteur partagent la m&ecirc;me cl&eacute; secr&egrave;te. Les algorithmes sym&eacute;triques sont g&eacute;n&eacute;ralement rapides et efficaces pour chiffrer de grandes quantit&eacute;s de donn&eacute;es.</p><p id="850787995#-16qaiw_15">Exemples: AES, DES</p><p id="850787995#-16qaiw_16">Le <span class="control" id="850787995#-16qaiw_19">chiffrement asym&eacute;trique</span> utilise une paire de cl&eacute;s: une cl&eacute; publique (pour chiffrer) et une cl&eacute; priv&eacute;e (pour d&eacute;chiffrer). La cl&eacute; publique peut &ecirc;tre partag&eacute;e avec n'importe qui, tandis que la cl&eacute; priv&eacute;e reste secr&egrave;te. Le processus est plus lent mais r&eacute;sout le probl&egrave;me de la distribution s&eacute;curis&eacute;e des cl&eacute;s.</p><p id="850787995#-16qaiw_17">Exemples: RSA, ECC</p></section><section class="detached"><h2 id="850787995#2-relancer-le-chiffrement-avec-openssl-m-me-base64" data-toc="2-relancer-le-chiffrement-avec-openssl-m-me-base64#TP3-Crypto-Reponses.md-2-relancer-le-chiffrement-avec-openssl-m-me-base64">2. Relancer le chiffrement avec OpenSSL - m&ecirc;me base64 ?</h2><p id="850787995#-16qaiw_20">Non, on n'obtient pas le m&ecirc;me base64 lors de la relance du chiffrement. C'est normal car:</p><ol class="list list-decimal" id="850787995#-16qaiw_21" type="1" start="1"><li class="list-item" id="850787995#-16qaiw_26"><p id="850787995#-16qaiw_29">OpenSSL utilise un sel (salt) al&eacute;atoire &agrave; chaque ex&eacute;cution</p></li><li class="list-item" id="850787995#-16qaiw_27"><p id="850787995#-16qaiw_30">Ce sel est utilis&eacute; avec le mot de passe pour d&eacute;river la cl&eacute; de chiffrement</p></li><li class="list-item" id="850787995#-16qaiw_28"><p id="850787995#-16qaiw_31">L'IV (vecteur d'initialisation) est &eacute;galement diff&eacute;rent &agrave; chaque ex&eacute;cution</p></li></ol><p id="850787995#-16qaiw_22">En utilisant le param&egrave;tre <span class="inline-code" id="850787995#-16qaiw_32">-p</span>, on peut voir que le sel, la cl&eacute; et l'IV sont diff&eacute;rents &agrave; chaque ex&eacute;cution, ce qui explique pourquoi le r&eacute;sultat chiffr&eacute; (base64) est diff&eacute;rent m&ecirc;me pour le m&ecirc;me message et le m&ecirc;me mot de passe.</p><p id="850787995#-16qaiw_23"><span class="control" id="850787995#-16qaiw_33">Commandes utilis&eacute;es:</span></p><div class="detached code-block" id="850787995#-16qaiw_24"><pre><code class="language-bash"># Premier chiffrement
+openssl enc -aes-256-ctr -salt -e -pbkdf2 -a
+# Saisir le mot de passe et le message
+
+# Deuxième chiffrement (avec les mêmes données)
+openssl enc -aes-256-ctr -salt -e -pbkdf2 -a
+# Saisir le même mot de passe et message
+
+# Avec affichage du sel, clé et IV
+openssl enc -aes-256-ctr -salt -e -pbkdf2 -a -p
+# Saisir le mot de passe et le message</code></pre></div></section><section class="detached"><h2 id="850787995#3-s-curit-de-la-transmission-du-mot-de-passe-et-du-base64" data-toc="3-s-curit-de-la-transmission-du-mot-de-passe-et-du-base64#TP3-Crypto-Reponses.md-3-s-curit-de-la-transmission-du-mot-de-passe-et-du-base64">3. S&eacute;curit&eacute; de la transmission du mot de passe et du base64</h2><p id="850787995#-16qaiw_34">Le mot de passe ainsi que le base64 ont &eacute;t&eacute; transmis &agrave; l'oral ainsi que sur une discussion Discord, ce qui n'est pas une bonne pratique.</p><p id="850787995#-16qaiw_35">La transmission du mot de passe et du base64 par des moyens non s&eacute;curis&eacute;s (comme un email non chiffr&eacute;, messagerie instantan&eacute;e, etc.) n'est pas s&eacute;curis&eacute;e pour plusieurs raisons:</p><ol class="list list-decimal" id="850787995#-16qaiw_36" type="1" start="1"><li class="list-item" id="850787995#-16qaiw_41"><p id="850787995#-16qaiw_44">Le mot de passe pourrait &ecirc;tre intercept&eacute; par un attaquant sur le r&eacute;seau</p></li><li class="list-item" id="850787995#-16qaiw_42"><p id="850787995#-16qaiw_45">Si le mot de passe est compromis, l'attaquant peut d&eacute;chiffrer le message</p></li><li class="list-item" id="850787995#-16qaiw_43"><p id="850787995#-16qaiw_46">La transmission par canal non s&eacute;curis&eacute; expose les donn&eacute;es &agrave; des risques d'interception</p></li></ol><p id="850787995#-16qaiw_37">Une meilleure approche serait d'utiliser un canal de communication s&eacute;curis&eacute;.</p><p id="850787995#-16qaiw_38"><span class="control" id="850787995#-16qaiw_47">Commandes utilis&eacute;es (pour chiffrer et d&eacute;chiffrer):</span></p><div class="detached code-block" id="850787995#-16qaiw_39"><pre><code class="language-bash"># Chiffrement (administrateur système)
+openssl enc -aes-256-ctr -salt -e -pbkdf2 -a
+# Saisir mot de passe et message
+
+# Déchiffrement (développeur)
+openssl enc -aes-256-ctr -salt -d -pbkdf2 -a
+# Saisir le mot de passe et coller le texte en base64</code></pre></div></section><section class="detached"><h2 id="850787995#4-piratage-de-la-cl-priv-e" data-toc="4-piratage-de-la-cl-priv-e#TP3-Crypto-Reponses.md-4-piratage-de-la-cl-priv-e">4. Piratage de la cl&eacute; priv&eacute;e</h2><p id="850787995#-16qaiw_48">Oui, c'est extr&ecirc;mement probl&eacute;matique si un attaquant obtient le fichier contenant la cl&eacute; priv&eacute;e. La cl&eacute; priv&eacute;e est l'&eacute;l&eacute;ment qui permet de d&eacute;chiffrer tous les messages chiffr&eacute;s avec la cl&eacute; publique correspondante.</p><p id="850787995#-16qaiw_49">Si un attaquant obtient la cl&eacute; priv&eacute;e, il peut:</p><ol class="list list-decimal" id="850787995#-16qaiw_50" type="1" start="1"><li class="list-item" id="850787995#-16qaiw_55"><p id="850787995#-16qaiw_58">D&eacute;chiffrer tous les messages pr&eacute;c&eacute;demment chiffr&eacute;s avec la cl&eacute; publique correspondante</p></li><li class="list-item" id="850787995#-16qaiw_56"><p id="850787995#-16qaiw_59">Se faire passer pour le propri&eacute;taire l&eacute;gitime de la cl&eacute; en signant des documents</p></li><li class="list-item" id="850787995#-16qaiw_57"><p id="850787995#-16qaiw_60">Compromettre l'int&eacute;grit&eacute; du syst&egrave;me de chiffrement</p></li></ol><p id="850787995#-16qaiw_51">C'est pour cette raison qu'il est recommand&eacute; de prot&eacute;ger la cl&eacute; priv&eacute;e avec un mot de passe fort (comme dans l'exemple avec le param&egrave;tre <span class="inline-code" id="850787995#-16qaiw_61">-aes256</span>).</p><p id="850787995#-16qaiw_52"><span class="control" id="850787995#-16qaiw_62">Commandes utilis&eacute;es:</span></p><div class="detached code-block" id="850787995#-16qaiw_53"><pre><code class="language-bash"># Génération de clé privée sans protection par mot de passe
+openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:4096
+
+# Génération de clé privée protégée par mot de passe
+openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:4096 -aes256</code></pre></div></section><section class="detached"><h2 id="850787995#5-partage-de-la-cl-publique-et-risques" data-toc="5-partage-de-la-cl-publique-et-risques#TP3-Crypto-Reponses.md-5-partage-de-la-cl-publique-et-risques">5. Partage de la cl&eacute; publique et risques</h2><p id="850787995#-16qaiw_63">Le partage de la cl&eacute; publique ne repr&eacute;sente g&eacute;n&eacute;ralement pas un danger, car elle est con&ccedil;ue pour &ecirc;tre distribu&eacute;e librement. La s&eacute;curit&eacute; du chiffrement asym&eacute;trique repose sur le fait qu'il est math&eacute;matiquement tr&egrave;s difficile de d&eacute;duire la cl&eacute; priv&eacute;e &agrave; partir de la cl&eacute; publique.</p><p id="850787995#-16qaiw_64">Cependant, certains risques peuvent exister:</p><ol class="list list-decimal" id="850787995#-16qaiw_65" type="1" start="1"><li class="list-item" id="850787995#-16qaiw_70"><p id="850787995#-16qaiw_72">L'usurpation d'identit&eacute;: quelqu'un pourrait pr&eacute;tendre que sa cl&eacute; publique vous appartient</p></li><li class="list-item" id="850787995#-16qaiw_71"><p id="850787995#-16qaiw_73">L'attaque de l'homme du milieu: un attaquant pourrait intercepter la communication et remplacer votre cl&eacute; publique par la sienne</p></li></ol><p id="850787995#-16qaiw_66">Pour att&eacute;nuer ces risques, il est important de v&eacute;rifier l'authenticit&eacute; de la cl&eacute; publique re&ccedil;ue (par exemple, en comparant les empreintes digitales de la cl&eacute; via un canal s&eacute;curis&eacute;).</p><p id="850787995#-16qaiw_67"><span class="control" id="850787995#-16qaiw_74">Commandes utilis&eacute;es:</span></p><div class="detached code-block" id="850787995#-16qaiw_68"><pre><code class="language-bash"># Dérivation de la clé publique à partir de la clé privée
+openssl pkey -pubout -in private_key.pem -out public_key.pem
+
+# Affichage du contenu des clés
+cat private_key.pem
+cat public_key.pem</code></pre></div></section><section class="detached"><h2 id="850787995#6-chiffrement-sym-trique-vs-asym-trique-cas-d-usage" data-toc="6-chiffrement-sym-trique-vs-asym-trique-cas-d-usage#TP3-Crypto-Reponses.md-6-chiffrement-sym-trique-vs-asym-trique-cas-d-usage">6. Chiffrement sym&eacute;trique vs asym&eacute;trique - cas d'usage</h2><p id="850787995#-16qaiw_75"><span class="control" id="850787995#-16qaiw_83">Utilisation pr&eacute;f&eacute;rentielle du chiffrement sym&eacute;trique:</span></p><ul class="list" id="850787995#-16qaiw_76" start="1"><li class="list-item" id="850787995#-16qaiw_84"><p id="850787995#-16qaiw_88">Pour le chiffrement de grandes quantit&eacute;s de donn&eacute;es (fichiers, disques durs)</p></li><li class="list-item" id="850787995#-16qaiw_85"><p id="850787995#-16qaiw_89">Quand la performance est critique (le chiffrement sym&eacute;trique est beaucoup plus rapide)</p></li><li class="list-item" id="850787995#-16qaiw_86"><p id="850787995#-16qaiw_90">Dans des environnements contr&ocirc;l&eacute;s o&ugrave; l'&eacute;change s&eacute;curis&eacute; de cl&eacute;s est possible</p></li><li class="list-item" id="850787995#-16qaiw_87"><p id="850787995#-16qaiw_91">Pour les communications en temps r&eacute;el n&eacute;cessitant un chiffrement rapide</p></li></ul><p id="850787995#-16qaiw_77"><span class="control" id="850787995#-16qaiw_92">Utilisation pr&eacute;f&eacute;rentielle du chiffrement asym&eacute;trique:</span></p><ul class="list" id="850787995#-16qaiw_78" start="1"><li class="list-item" id="850787995#-16qaiw_93"><p id="850787995#-16qaiw_97">Pour l'&eacute;change s&eacute;curis&eacute; de cl&eacute;s dans un r&eacute;seau non s&eacute;curis&eacute;</p></li><li class="list-item" id="850787995#-16qaiw_94"><p id="850787995#-16qaiw_98">Pour authentifier l'identit&eacute; (signatures num&eacute;riques)</p></li><li class="list-item" id="850787995#-16qaiw_95"><p id="850787995#-16qaiw_99">Quand il y a besoin de communiquer avec plusieurs parties sans partager de secret commun</p></li><li class="list-item" id="850787995#-16qaiw_96"><p id="850787995#-16qaiw_100">Pour &eacute;tablir un canal s&eacute;curis&eacute; initial avant de passer au chiffrement sym&eacute;trique (comme dans TLS/SSL)</p></li></ul><p id="850787995#-16qaiw_79">En pratique, les syst&egrave;mes modernes utilisent souvent une approche hybride: le chiffrement asym&eacute;trique pour &eacute;changer une cl&eacute; sym&eacute;trique, puis le chiffrement sym&eacute;trique pour les donn&eacute;es.</p><p id="850787995#-16qaiw_80"><span class="control" id="850787995#-16qaiw_101">Commandes utilis&eacute;es:</span></p><div class="detached code-block" id="850787995#-16qaiw_81"><pre><code class="language-bash"># Chiffrement asymétrique
+openssl rsautl -encrypt -inkey public_key.pem -pubin -out message.enc
+# Saisir le message
+
+# Déchiffrement asymétrique
+openssl rsautl -decrypt -inkey private_key.pem -in message.enc</code></pre></div></section><section class="detached"><h2 id="850787995#7-diff-rence-gpg-vs-openssl" data-toc="7-diff-rence-gpg-vs-openssl#TP3-Crypto-Reponses.md-7-diff-rence-gpg-vs-openssl">7. Diff&eacute;rence GPG vs OpenSSL</h2><p id="850787995#-16qaiw_102">Avec GPG, le message chiffr&eacute; est automatiquement format&eacute; avec un en-t&ecirc;te qui inclut des informations comme la version de GPG, l'algorithme utilis&eacute;, et d'autres m&eacute;tadonn&eacute;es. Le format ressemble &agrave;:</p><div class="detached code-block" id="850787995#-16qaiw_103"><pre><code class="language-none">-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+...
+-----END PGP MESSAGE-----</code></pre></div><p id="850787995#-16qaiw_104">Contrairement &agrave; OpenSSL qui produit une sortie brute encod&eacute;e en base64, GPG encapsule le message dans un format d&eacute;fini qui fournit plus de contexte.</p><p id="850787995#-16qaiw_105">Le GPG g&egrave;re automatiquement les cl&eacute;s dans un trousseau, contrairement &agrave; OpenSSL o&ugrave; les fichiers de cl&eacute;s doivent &ecirc;tre g&eacute;r&eacute;s manuellement.</p><p id="850787995#-16qaiw_106">Le GPG est plus convivial et orient&eacute; utilisateur final, avec une meilleure int&eacute;gration.</p><p id="850787995#-16qaiw_107"><span class="control" id="850787995#-16qaiw_110">Commandes utilis&eacute;es:</span></p><div class="detached code-block" id="850787995#-16qaiw_108"><pre><code class="language-bash"># Chiffrement symétrique avec GPG
+gpg --symmetric --pinentry-mode=loopback -a
+# Saisir le mot de passe et le message
+
+# Déchiffrement avec GPG
+gpg --decrypt --pinentry-mode=loopback
+# Coller le message chiffré</code></pre></div></section><section class="detached"><h2 id="850787995#8-algorithme-et-longueur-de-cl-par-d-faut-dans-gpg" data-toc="8-algorithme-et-longueur-de-cl-par-d-faut-dans-gpg#TP3-Crypto-Reponses.md-8-algorithme-et-longueur-de-cl-par-d-faut-dans-gpg">8. Algorithme et longueur de cl&eacute; par d&eacute;faut dans GPG</h2><p id="850787995#-16qaiw_111">En g&eacute;n&eacute;rant une nouvelle paire de cl&eacute;s avec GPG, j'ai pu observer que par d&eacute;faut:</p><ul class="list" id="850787995#-16qaiw_112" start="1"><li class="list-item" id="850787995#-16qaiw_117"><p id="850787995#-16qaiw_120">L'algorithme utilis&eacute; est <span class="control" id="850787995#-16qaiw_121">RSA</span></p></li><li class="list-item" id="850787995#-16qaiw_118"><p id="850787995#-16qaiw_122">La longueur de cl&eacute; est de <span class="control" id="850787995#-16qaiw_123">3072 bits</span></p></li><li class="list-item" id="850787995#-16qaiw_119"><p id="850787995#-16qaiw_124">La cl&eacute; est valide pour une dur&eacute;e de <span class="control" id="850787995#-16qaiw_125">2 ans</span> (24 mois)</p></li></ul><p id="850787995#-16qaiw_113">Ces valeurs par d&eacute;faut sont consid&eacute;r&eacute;es comme s&eacute;curis&eacute;es selon les standards actuels. La longueur de 3072 bits offre un bon compromis entre s&eacute;curit&eacute; et performance, tandis que la validit&eacute; de 2 ans encourage les utilisateurs &agrave; renouveler r&eacute;guli&egrave;rement leurs cl&eacute;s.</p><p id="850787995#-16qaiw_114"><span class="control" id="850787995#-16qaiw_126">Commandes utilis&eacute;es:</span></p><div class="detached code-block" id="850787995#-16qaiw_115"><pre><code class="language-bash"># Générer une clé GPG avec les paramètres par défaut
+gpg --gen-key --pinentry-mode=loopback
+
+# Lister les clés pour voir leurs caractéristiques
+gpg --list-secret-keys
+gpg --list-keys</code></pre></div></section><section class="detached"><h2 id="850787995#9-gpg-plus-facile-que-openssl" data-toc="9-gpg-plus-facile-que-openssl#TP3-Crypto-Reponses.md-9-gpg-plus-facile-que-openssl">9. GPG plus facile que OpenSSL?</h2><p id="850787995#-16qaiw_127">Oui, GPG est g&eacute;n&eacute;ralement consid&eacute;r&eacute; comme plus facile d'utilisation quotidienne qu'OpenSSL pour plusieurs raisons:</p><ol class="list list-decimal" id="850787995#-16qaiw_128" type="1" start="1"><li class="list-item" id="850787995#-16qaiw_133"><p id="850787995#-16qaiw_138"><span class="control" id="850787995#-16qaiw_139">Interface plus intuitive</span>: Les commandes GPG sont plus faciles &agrave; m&eacute;moriser et &agrave; utiliser</p></li><li class="list-item" id="850787995#-16qaiw_134"><p id="850787995#-16qaiw_140"><span class="control" id="850787995#-16qaiw_141">Gestion des cl&eacute;s int&eacute;gr&eacute;e</span>: GPG maintient un trousseau de cl&eacute;s qui simplifie la gestion des cl&eacute;s publiques et priv&eacute;es</p></li><li class="list-item" id="850787995#-16qaiw_135"><p id="850787995#-16qaiw_142"><span class="control" id="850787995#-16qaiw_143">Format standardis&eacute;</span>: Le format PGP est largement reconnu et standardis&eacute;</p></li><li class="list-item" id="850787995#-16qaiw_136"><p id="850787995#-16qaiw_144"><span class="control" id="850787995#-16qaiw_145">Moins d'erreurs possibles</span>: GPG a des valeurs par d&eacute;faut s&eacute;curis&eacute;es et n&eacute;cessite moins de param&egrave;tres techniques</p></li><li class="list-item" id="850787995#-16qaiw_137"><p id="850787995#-16qaiw_146"><span class="control" id="850787995#-16qaiw_147">Plus d'automatisation</span>: Beaucoup d'op&eacute;rations courantes sont automatis&eacute;es</p></li></ol><p id="850787995#-16qaiw_129">OpenSSL est plus puissant et polyvalent, mais cette flexibilit&eacute; se traduit par une complexit&eacute; accrue qui peut &ecirc;tre source d'erreurs si on ne ma&icirc;trise pas bien l'outil.</p><p id="850787995#-16qaiw_130"><span class="control" id="850787995#-16qaiw_148">Commandes compar&eacute;es:</span></p><div class="detached code-block" id="850787995#-16qaiw_131"><pre><code class="language-bash"># Génération de clés avec GPG
+gpg --gen-key --pinentry-mode=loopback
+
+# vs génération de clés avec OpenSSL (plusieurs étapes)
+openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:4096
+openssl pkey -pubout -in private_key.pem -out public_key.pem</code></pre></div></section><section class="detached"><h2 id="850787995#10-authenticit-de-l-exp-diteur-administrateur-syst-me" data-toc="10-authenticit-de-l-exp-diteur-administrateur-syst-me#TP3-Crypto-Reponses.md-10-authenticit-de-l-exp-diteur-administrateur-syst-me">10. Authenticit&eacute; de l'exp&eacute;diteur (administrateur syst&egrave;me)</h2><p id="850787995#-16qaiw_149">Non, il est impossible d'affirmer avec certitude que le message chiffr&eacute; provient bien de l'administrateur syst&egrave;me. Dans le cas du chiffrement asym&eacute;trique avec GPG, n'importe qui en possession de ma cl&eacute; publique (le d&eacute;veloppeur) pourrait chiffrer un message et pr&eacute;tendre &ecirc;tre l'administrateur syst&egrave;me.</p><p id="850787995#-16qaiw_150"><span class="control" id="850787995#-16qaiw_158">Exemple illustratif:</span> Imaginons qu'un attaquant &quot;Charlie&quot; souhaite se faire passer pour l'administrateur syst&egrave;me. Il pourrait:</p><ol class="list list-decimal" id="850787995#-16qaiw_151" type="1" start="1"><li class="list-item" id="850787995#-16qaiw_159"><p id="850787995#-16qaiw_162">R&eacute;cup&eacute;rer ma cl&eacute; publique (celle du d&eacute;veloppeur) qui est disponible librement</p></li><li class="list-item" id="850787995#-16qaiw_160"><p id="850787995#-16qaiw_163">Chiffrer un faux message avec ma cl&eacute; publique (ex: &quot;Voici le mot de passe de la base de donn&eacute;es: MauvaisMotDePasse123&quot;)</p></li><li class="list-item" id="850787995#-16qaiw_161"><p id="850787995#-16qaiw_164">M'envoyer ce message en pr&eacute;tendant &ecirc;tre l'administrateur syst&egrave;me</p></li></ol><p id="850787995#-16qaiw_152">Comme je peux d&eacute;chiffrer ce message avec ma cl&eacute; priv&eacute;e, je n'ai aucun moyen technique de savoir s'il provient r&eacute;ellement de l'administrateur syst&egrave;me ou de l'attaquant Charlie.</p><p id="850787995#-16qaiw_153">Pour garantir l'authenticit&eacute; de l'exp&eacute;diteur, l'administrateur syst&egrave;me devrait:</p><ul class="list" id="850787995#-16qaiw_154" start="1"><li class="list-item" id="850787995#-16qaiw_165"><p id="850787995#-16qaiw_167">Signer le message avec sa cl&eacute; priv&eacute;e en plus de le chiffrer avec ma cl&eacute; publique</p></li><li class="list-item" id="850787995#-16qaiw_166"><p id="850787995#-16qaiw_168">Je pourrais alors v&eacute;rifier la signature avec sa cl&eacute; publique pour confirmer l'identit&eacute; de l'exp&eacute;diteur</p></li></ul><p id="850787995#-16qaiw_155">La signature num&eacute;rique r&eacute;sout ce probl&egrave;me en apportant la garantie d'identit&eacute; que le simple chiffrement ne peut pas offrir.</p><p id="850787995#-16qaiw_156"><span class="control" id="850787995#-16qaiw_169">Commandes utilis&eacute;es:</span></p><div class="detached code-block" id="850787995#-16qaiw_157"><pre><code class="language-bash"># Simple chiffrement (sans authentification)
+gpg -a --encrypt --recipient dev@target.lxc
+# Saisir le message
+
+# Chiffrement avec signature (garantit l'authenticité)
+gpg -a --sign --encrypt --recipient dev@target.lxc
+# Saisir le message
+
+# Déchiffrement et vérification de signature
+gpg --decrypt
+# Coller le message chiffré</code></pre></div></section><section class="detached"><h2 id="850787995#11-alt-ration-du-message-sign-r-sultat-de-la-v-rification" data-toc="11-alt-ration-du-message-sign-r-sultat-de-la-v-rification#TP3-Crypto-Reponses.md-11-alt-ration-du-message-sign-r-sultat-de-la-v-rification">11. Alt&eacute;ration du message sign&eacute; - r&eacute;sultat de la v&eacute;rification</h2><p id="850787995#-16qaiw_170"><span class="emphasis" id="850787995#-16qaiw_182">Cette partie a &eacute;t&eacute; faite sur mon WSL car la VM a un peu gal&eacute;r&eacute;e</span></p><p id="850787995#-16qaiw_171">Lorsqu'un message sign&eacute; est alt&eacute;r&eacute;, m&ecirc;me l&eacute;g&egrave;rement, la v&eacute;rification de signature avec GPG &eacute;choue. Le syst&egrave;me affiche g&eacute;n&eacute;ralement un message d'erreur explicite comme:</p><div class="detached code-block" id="850787995#-16qaiw_172"><pre><code class="language-none">gpg: Signature made [date and time]
+gpg: using RSA key [key ID]
+gpg: BAD signature from &quot;User Name &lt;email@example.com&gt;&quot;</code></pre></div><p id="850787995#-16qaiw_173">C'est exactement le but d'une signature num&eacute;rique: garantir l'int&eacute;grit&eacute; du message. La moindre modification du contenu apr&egrave;s signature sera d&eacute;tect&eacute;e lors de la v&eacute;rification, car la fonction de hachage utilis&eacute;e dans le processus de signature produira une valeur diff&eacute;rente pour le message modifi&eacute;.</p><p id="850787995#-16qaiw_174">Cette caract&eacute;ristique est cruciale pour d&eacute;tecter toute tentative de falsification d'un message sign&eacute;.</p><p id="850787995#-16qaiw_175"><span class="control" id="850787995#-16qaiw_183">Commandes d&eacute;taill&eacute;es &agrave; ex&eacute;cuter:</span></p><p id="850787995#-16qaiw_176"><span class="control" id="850787995#-16qaiw_184">Sur la machine du d&eacute;veloppeur (target-dev):</span></p><div class="detached code-block" id="850787995#-16qaiw_177"><pre><code class="language-bash"># 1. Créer un message signé (sans chiffrement)
+gpg --clear-sign
+# Saisir un message de test, par exemple: &quot;Ceci est un message de test important&quot;
+# Appuyer sur Ctrl+D pour terminer la saisie
+
+# 2. Copier le message signé complet (y compris les en-têtes)
+# Le message aura cette structure:
+# -----BEGIN PGP SIGNED MESSAGE-----
+# Hash: SHA256
+#
+# Ceci est un message de test important
+# -----BEGIN PGP SIGNATURE-----
+# ...signature...
+# -----END PGP SIGNATURE-----</code></pre></div><p id="850787995#-16qaiw_178"><span class="control" id="850787995#-16qaiw_185">Sur la machine de l'administrateur syst&egrave;me (target-admin):</span></p><div class="detached code-block" id="850787995#-16qaiw_179"><pre><code class="language-bash"># 3. Créer un fichier temporaire pour le message signé
+nano message_signe.txt
+# Coller le message signé complet, enregistrer et quitter (Ctrl+O, Enter, Ctrl+X)
+
+# 4. Vérifier la signature intacte
+gpg --verify message_signe.txt
+# Le résultat doit indiquer &quot;Good signature&quot;
+
+# 5. Modifier le message
+nano message_signe.txt
+# Modifier le texte du message (par exemple, changer &quot;important&quot; en &quot;crucial&quot;)
+# Sauvegarder les modifications (Ctrl+O, Enter, Ctrl+X)
+
+# 6. Vérifier à nouveau la signature après modification
+gpg --verify message_signe.txt
+# Le résultat doit maintenant indiquer &quot;BAD signature&quot;</code></pre></div><p id="850787995#-16qaiw_180">Cette s&eacute;quence de commandes permet de d&eacute;montrer concr&egrave;tement comment GPG d&eacute;tecte imm&eacute;diatement toute alt&eacute;ration du message sign&eacute;, m&ecirc;me minime, garantissant ainsi l'int&eacute;grit&eacute; du message original.</p></section></article></div></section></div></body></html>

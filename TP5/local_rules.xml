@@ -1,0 +1,7 @@
+<group name="local,syscheck">
+  <rule id="100100" level="7">
+    <if_sid>550</if_sid>
+    <match>/var/lib/dokuwiki/data/media</match>
+    <description>New file detected in Dokuwiki media directory</description>
+  </rule>
+</group> 

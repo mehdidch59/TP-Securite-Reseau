@@ -1,0 +1,40 @@
+220 (vsFTPd 3.0.3)
+
+USER anonymous
+
+230 Login successful.
+
+CWD data
+
+250 Directory successfully changed.
+
+PASV
+
+227 Entering Passive Mode (100,120,0,4,126,129).
+
+STOR database.gpg
+
+150 Ok to send data.
+226 Transfer complete.
+
+PASV
+
+227 Entering Passive Mode (100,120,0,4,96,58).
+
+STOR crm.key
+
+150 Ok to send data.
+226 Transfer complete.
+
+PASV
+
+227 Entering Passive Mode (100,120,0,4,63,255).
+
+STOR bash_history
+
+150 Ok to send data.
+226 Transfer complete.
+
+QUIT
+
+221 Goodbye.

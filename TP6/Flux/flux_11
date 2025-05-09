@@ -1,0 +1,46 @@
+ls
+gpg --import crm.key 
+ls
+cd ../crm
+ls
+gpg -d database.gpg 
+gpg --import crm.key 
+gpg --list-secret-keys 
+car crm.key 
+cat crm.key 
+gpg --list-key
+gpg --list-secret-keys 
+gpg --edit-key 
+gpg --edit-key  C80DEAC2D231B4F6E23267ECDC3DCA1E787FDCBF
+gpg --list-secret-keys 
+gpg --edit-key  C80DEAC2D231B4F6E23267ECDC3DCA1E787FDCBF
+gpg --list-secret-keys 
+gpg -d ../crm/database.gpg 
+ls
+gpg --import < crm.key 
+gpg --pinentry-mode=loopback --import < crm.key 
+gpg --pinentry-mode=loopback --import < crm.key 
+ls
+ls
+gpg -d ../crm/database.gpg 
+gpg --list-secret-keys 
+gpg -d ../crm/database.gpg 
+ls
+gpg -d ../crm/database.gpg 
+cd ..
+ls
+cd crm/
+ls
+gpg -d database.gpg 
+ls -l
+head database.gpg 
+gpg -d < database.gpg 
+gpg -d --passphrase  < database.gpg 
+gpg -d --pinentry-mode=loopback < database.gpg 
+gpg -d --passphrase "La clef secr..te" < database.gpg 
+gpg -d --passphrase="La clef secr..te" < database.gpg 
+gpg -d --passphrase="La clef secr..te" < database.gpg 
+gpg -d --pinentry-mode=loopback < database.gpg 
+gpg -d  < database.gpg 
+cd ../crm
+gpg -d  < database.gpg 

